@@ -1,0 +1,36 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 20px;
+  color: white;
+  margin-right: 16px;
+}
+
+.nav-links,
+.auth-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.menu-button {
+  display: none;
+}
+
+/* Responsive - en móviles ocultar links y mostrar hamburguesa */
+@media (max-width: 768px) {
+  .nav-links,
+  .auth-links {
+    display: none;
+  }
+
+  .menu-button {
+    display: inline-flex;
+  }
+}

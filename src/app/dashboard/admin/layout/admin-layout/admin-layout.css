@@ -1,0 +1,32 @@
+.admin-layout {
+  display: grid;
+  grid-template-rows: 60px 1fr; /* Navbar arriba (60px) y el resto ocupa el espacio */
+  height: 100vh;
+}
+
+/* Navbar ocupa toda la parte superior */
+.navbar {
+  grid-row: 1 / 2;
+  width: 100%;
+}
+
+/* Contenedor principal debajo de la navbar */
+.main-content {
+  grid-row: 2 / 3;
+  display: grid;
+  grid-template-columns: 220px 1fr; /* Sidebar (220px) + contenido flexible */
+  height: 100%;
+}
+
+/* Sidebar a la izquierda */
+.sidebar {
+  background-color: #b71c1c;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Contenido dinámico a la derecha */
+.content-area {
+  background-color: #f8f9fa;
+  overflow-y: auto;
+}

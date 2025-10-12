@@ -1,0 +1,11 @@
+.main-layout {
+  display: flex;
+}
+
+.main-content {
+  margin-top: 140px;
+  width: 100%;
+  min-height: calc(100vh);
+  background-color: #ecf4f9;
+  overflow-y: auto;
+}

@@ -1,0 +1,48 @@
+/* Contenedor principal */
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f7fc;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+.login-img {
+  margin-bottom: 20px;
+}
+
+/* Estilo de los campos */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+}
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 600px) {
+  .login {
+    padding: 10px;
+  }
+
+  .login-img {
+    height: 100px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+}

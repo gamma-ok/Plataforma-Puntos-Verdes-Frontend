@@ -1,0 +1,89 @@
+/* Contenedor principal */
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f7fc;
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Imagen superior (opcional) */
+.login-img {
+  margin-bottom: 25px;
+  width: 120px;
+  height: auto;
+}
+
+/* Título */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2e7d32; /* verde similar al signup */
+}
+
+/* Tarjeta del formulario */
+mat-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  background-color: #fff;
+}
+
+/* Campos de entrada */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Botón principal */
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #43a047;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2e7d32;
+}
+
+/* Mensaje de error */
+.error {
+  color: #d32f2f;
+  margin-top: 15px;
+  font-weight: 500;
+  background-color: #fdecea;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 600px) {
+  .login {
+    padding: 10px;
+  }
+
+  .login-img {
+    width: 90px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  mat-card {
+    padding: 20px;
+  }
+}

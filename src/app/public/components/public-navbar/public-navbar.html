@@ -1,0 +1,30 @@
+<mat-toolbar color="primary" class="navbar">
+    <span class="logo">Puntos Verdes</span>
+
+    <button class="menu-button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menú">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/">Inicio</button>
+        <button mat-menu-item routerLink="/servicios">Servicios</button>
+        <button mat-menu-item routerLink="/usuario">Usuario</button>
+        <button mat-menu-item routerLink="/usuario">Estadísticas</button>
+        <button mat-menu-item routerLink="/usuario">Recompensas</button>
+        <button mat-menu-item routerLink="/signup">Register</button>
+        <button mat-menu-item routerLink="/login">Login</button>
+    </mat-menu>
+
+    <div class="nav-links">
+        <a mat-button routerLink="/">Inicio</a>
+        <a mat-button routerLink="/servicios">Servicios</a>
+        <a mat-button routerLink="/usuarios">Usuarios</a>
+        <a mat-button routerLink="/estadisticas">Estadísticas</a>
+        <a mat-button routerLink="/recompensas">Recompensas</a>
+    </div>
+
+    <div class="auth-links">
+        <a mat-button routerLink="/signup">Register</a>
+        <a mat-button routerLink="/login">Login</a>
+    </div>
+</mat-toolbar>
