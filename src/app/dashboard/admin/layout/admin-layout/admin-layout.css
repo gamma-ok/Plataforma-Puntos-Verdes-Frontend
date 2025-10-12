@@ -1,32 +1,105 @@
+/* ====== LAYOUT GENERAL ====== */
 .admin-layout {
   display: grid;
-  grid-template-rows: 60px 1fr; /* Navbar arriba (60px) y el resto ocupa el espacio */
+  grid-template-columns: 240px 1fr; /* Sidebar fijo a la izquierda */
   height: 100vh;
+  background-color: #f4f6f8;
+  overflow: hidden;
 }
 
-/* Navbar ocupa toda la parte superior */
-.navbar {
-  grid-row: 1 / 2;
-  width: 100%;
-}
-
-/* Contenedor principal debajo de la navbar */
-.main-content {
-  grid-row: 2 / 3;
-  display: grid;
-  grid-template-columns: 220px 1fr; /* Sidebar (220px) + contenido flexible */
-  height: 100%;
-}
-
-/* Sidebar a la izquierda */
+/* ====== SIDEBAR ====== */
 .sidebar {
-  background-color: #b71c1c;
+  grid-column: 1 / 2;
   height: 100%;
   overflow-y: auto;
+  position: fixed;
+  width: 240px;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
 }
 
-/* Contenido dinámico a la derecha */
+/* ====== SECCIÓN DERECHA ====== */
+.main-section {
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ====== NAVBAR (parte superior del contenido) ====== */
+.navbar {
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* ====== CONTENIDO ====== */
 .content-area {
-  background-color: #f8f9fa;
+  flex: 1;
+  background-color: #fbffff;
   overflow-y: auto;
+  height: calc(100vh - 64px);
+}
+
+/* ====== SCROLL PERSONALIZADO ====== */
+.sidebar::-webkit-scrollbar,
+.content-area::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb,
+.content-area::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.content-area::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 992px) {
+  .admin-layout {
+    grid-template-columns: 70px 1fr;
+  }
+
+  .sidebar {
+    width: 70px;
+  }
+
+  .main-section {
+    margin-left: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    width: 220px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main-section {
+    margin-left: 0;
+  }
+
+  .navbar {
+    justify-content: space-between;
+  }
 }

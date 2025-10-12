@@ -1,30 +1,33 @@
-<mat-toolbar color="primary" class="navbar">
-    <span class="logo">Puntos Verdes</span>
+<header class="navbar">
+  <div class="nav-left">
+    <a routerLink="/">
+      <img src="assets/img/logo-puntos-verdes.png" class="logo-img" />
+    </a>
+  </div>
 
-    <button class="menu-button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menú">
-        <mat-icon>menu</mat-icon>
-    </button>
+  <div class="menu-toggle" (click)="toggleMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
 
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/">Inicio</button>
-        <button mat-menu-item routerLink="/servicios">Servicios</button>
-        <button mat-menu-item routerLink="/usuario">Usuario</button>
-        <button mat-menu-item routerLink="/usuario">Estadísticas</button>
-        <button mat-menu-item routerLink="/usuario">Recompensas</button>
-        <button mat-menu-item routerLink="/signup">Register</button>
-        <button mat-menu-item routerLink="/login">Login</button>
-    </mat-menu>
-
-    <div class="nav-links">
-        <a mat-button routerLink="/">Inicio</a>
-        <a mat-button routerLink="/servicios">Servicios</a>
-        <a mat-button routerLink="/usuarios">Usuarios</a>
-        <a mat-button routerLink="/estadisticas">Estadísticas</a>
-        <a mat-button routerLink="/recompensas">Recompensas</a>
+  <div class="nav-center" [class.active]="menuOpen">
+    <div class="menu-links">
+      <a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Inicio</a>
+      <a routerLink="/servicios" routerLinkActive="active" (click)="closeMenu()">Servicios</a>
+      <a routerLink="/usuarios" routerLinkActive="active" (click)="closeMenu()">Usuarios</a>
+      <a routerLink="/estadisticas" routerLinkActive="active" (click)="closeMenu()">Estadísticas</a>
+      <a routerLink="/recompensas" routerLinkActive="active" (click)="closeMenu()">Recompensas</a>
     </div>
 
     <div class="auth-links">
-        <a mat-button routerLink="/signup">Register</a>
-        <a mat-button routerLink="/login">Login</a>
+      <a class="btn-nav" routerLink="/contacto" (click)="closeMenu()">
+        <i class="fa-solid fa-envelope"></i> Contacto
+      </a>
+      <a class="btn-nav" routerLink="/signup" (click)="closeMenu()">
+        <i class="fa-solid fa-user-plus"></i> Register
+      </a>
+      <a class="btn-nav" routerLink="/login" (click)="closeMenu()">
+        <i class="fa-solid fa-user"></i> Acceder
+      </a>
     </div>
-</mat-toolbar>
+  </div>
+</header>

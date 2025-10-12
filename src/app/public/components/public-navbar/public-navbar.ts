@@ -21,5 +21,13 @@ import {MatMenuModule} from '@angular/material/menu';
 })
 
 export class PublicNavbarComponent {
+  menuOpen = false;
 
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
+  }
 }

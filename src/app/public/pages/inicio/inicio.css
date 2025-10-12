@@ -1,0 +1,160 @@
+/* ECCIÓN HERO */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4rem 2rem;
+  overflow: hidden;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Video de fondo */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* Capa oscura encima del video */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(8, 8, 8, 0.55);
+  backdrop-filter: blur(2px);
+  z-index: -1;
+}
+
+/* Contenido principal */
+.hero-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Bloque de texto */
+.hero-left {
+  flex: 1;
+  max-width: 600px;
+  text-align: left;
+}
+
+.hero-left h1 {
+  font-size: 2.8rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.hero-left strong {
+  color: #a3e635;
+}
+
+.hero-left p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #e5e5e5;
+}
+
+/* otones */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1rem;
+}
+
+.btn-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #9acd32;
+  color: #fff;
+  padding: 1rem 1.8rem;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-cta:hover {
+  background: #7ca527;
+}
+
+.btn-sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 1rem 1.8rem;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-sec:hover {
+  background: #fff;
+  color: #004080;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .hero {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-content {
+    justify-content: center;
+  }
+
+  .hero-left {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .hero-left h1 {
+    font-size: 2.3rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-cta, .btn-sec {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-left h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero-left p {
+    font-size: 1rem;
+  }
+
+  .btn-cta, .btn-sec {
+    padding: 0.7rem 1.3rem;
+    font-size: 0.95rem;
+    width: 90%;
+  }
+}

@@ -1,42 +1,66 @@
+/* === Sidebar === */
 .sidebar-container {
-  background: #fff;
-  padding: 2rem 1rem;
-  border-right: 1px solid #ddd;
-  height: 100%;
-  box-sizing: border-box;
-  color: #333;
+  background: #1b2433;
+  width: 240px;
+  color: #fbffff;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding-top: 0; /* Alineación exacta con navbar */
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 900;
 }
 
-/* Título del sidebar */
+
+/* === Logo alineado al navbar === */
+.sidebar-header {
+  height: 70px;
+  /* igual que el navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sidebar-logo {
+  width: 180px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* === Título “Opciones” === */
 .sidebar-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #004080;
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fbffff;
+  margin: 1.2rem 0 1rem 0;
   position: relative;
-  padding-bottom: 0.3rem;
+  text-align: center;
+  width: 100%;
 }
 
 .sidebar-title::after {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60%;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
   height: 3px;
-  background: #8ab900;
+  background: #30acac;
   border-radius: 2px;
 }
 
-/* Lista de menú */
+/* === Menú === */
 .sidebar-menu {
   list-style: none;
   padding: 0;
-  margin: 0;
-  flex-grow: 1;
+  margin: 1rem 0 0 0;
+  width: 100%;
 }
 
 .sidebar-menu li {
@@ -45,31 +69,56 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.95rem;
-  font-weight: 500;
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #333;
+  color: #fbffff;
 }
 
 .sidebar-menu li i {
   width: 18px;
-  color: #004080;
+  font-size: 16px;
+  color: #fbffff;
 }
 
-/* Hover */
+/* Hover y activo */
 .sidebar-menu li:hover {
-  background: rgba(138, 185, 0, 0.1);
-  color: #004080;
+  background: rgba(138, 185, 0, 0.15);
+  color: #8ab900;
 }
 
-/* Activo */
 .sidebar-menu li.active {
   background: #8ab900;
-  color: white;
+  color: #fff;
   font-weight: 500;
 }
 
 .sidebar-menu li.active i {
-  color: white;
+  color: #fff;
+}
+
+/* === Contenido principal === */
+.main-content {
+  margin-left: 230px;
+  /* espacio del sidebar */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #f5f7fa;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Navbar ocupa parte superior del área principal */
+app-navbar-admin {
+  height: 70px;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* Contenido debajo del navbar */
+.content-area {
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-y: auto;
 }

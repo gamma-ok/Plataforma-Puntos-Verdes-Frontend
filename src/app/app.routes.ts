@@ -4,6 +4,7 @@ import { Servicios } from './public/pages/servicios/servicios';
 import { Usuarios } from './public/pages/usuarios/usuarios';
 import { Estadisticas } from './public/pages/estadisticas/estadisticas';
 import { Recompensas } from './public/pages/recompensas/recompensas';
+import { Contacto } from './public/pages/contacto/contacto';
 import { Signup } from './public/pages/signup/signup';
 import { Login } from './public/pages/login/login';
 
@@ -17,13 +18,22 @@ export const routes: Routes = [
     path: '',
     component: PublicLayout,
     children: [
-      { path: '', component: Inicio },
-      { path: 'servicios', component: Servicios },
-      { path: 'usuarios', component: Usuarios },
-      { path: 'estadisticas', component: Estadisticas },
-      { path: 'recompensas', component: Recompensas },
-      { path: 'signup', component: Signup },
-      { path: 'login', component: Login },
+      { path: '', component: Inicio,
+        data: { title: 'Inicio | Puntos Verdes' } },
+      { path: 'servicios', component: Servicios,
+        data: { title: 'Servicios | Puntos Verdes' } },
+      { path: 'usuarios', component: Usuarios,
+        data: { title: 'Usuarios | Puntos Verdes' } },
+      { path: 'estadisticas', component: Estadisticas,
+        data: { title: 'Estadísticas | Puntos Verdes' } },
+      { path: 'recompensas', component: Recompensas,
+        data: { title: 'Recompensas | Puntos Verdes' } },
+      { path: 'contacto', component: Contacto,
+        data: { title: 'Contacto | Puntos Verdes' } },
+      { path: 'signup', component: Signup,
+        data: { title: 'Registrarse | Puntos Verdes' } },
+      { path: 'login', component: Login,
+        data: { title: 'Iniciar sesión | Puntos Verdes' } },
     ]
   },
   {
@@ -32,7 +42,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'admin-inicio', component: AdminInicio,
-        data: { title: 'Dashboard Admin | Puntos Verdes' }
+        data: { title: 'Inicio | Dashboard Admin | Puntos Verdes' }
       },
     ]
   }

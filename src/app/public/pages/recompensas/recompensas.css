@@ -1,0 +1,182 @@
+/* ====== HERO RECOMPENSAS ====== */
+.page-hero.recompensas-hero {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  padding: 7rem 1rem 6rem;
+  overflow: hidden;
+}
+
+.page-hero.recompensas-hero .overlay-hero {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,64,128,0.85), rgba(138,185,0,0.7));
+  z-index: 0;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeInUp 1.2s ease;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* ====== SECCIÓN RECOMPENSAS ====== */
+.recompensas-section {
+  text-align: center;
+  padding: 5rem 1rem;
+  background: #f9f9f9;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #004080;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 3rem;
+}
+
+.recompensas-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.recompensa-card {
+  padding: 2rem 1.5rem;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.recompensa-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.recompensa-card h3 {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  color: #003366;
+}
+
+.recompensa-card p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.points {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  background: #8ab900;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ====== ICONOS ====== */
+.icon-circle.reward {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff9800, #ff5722);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 28px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.recompensa-card:hover .icon-circle.reward {
+  transform: scale(1.1) rotate(6deg);
+}
+
+/* ====== CTA FINAL ====== */
+.cta-section {
+  background: linear-gradient(135deg, #004080, #8ab900);
+  color: #fff;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.cta-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-container p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.cta-container .btn-cta {
+  background: #fff;
+  color: #004080;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.cta-container .btn-cta:hover {
+  background: #003366;
+  color: #fff;
+}
+
+/* ====== ANIMACIONES ====== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .recompensas-section {
+    padding: 3rem 1rem;
+  }
+
+  .cta-container h2 {
+    font-size: 1.6rem;
+  }
+}

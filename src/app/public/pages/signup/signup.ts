@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../../services/user';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
@@ -18,7 +19,8 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatButtonModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    RouterLink
   ],
   templateUrl: './signup.html',
   styleUrl: './signup.css'
@@ -33,7 +35,7 @@ export class Signup {
     email: ''
   };
 
-  constructor(private userService: UserService, private snack: MatSnackBar) {}
+  constructor(private userService: UserService, private snack: MatSnackBar) { }
 
   registrar() {
     if (!this.user.username || !this.user.password || !this.user.email) {
@@ -49,5 +51,11 @@ export class Signup {
         this.snack.open('Error al registrar el usuario', 'Cerrar', { duration: 3000 });
       }
     });
+  }
+
+  showPassword = false;
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 }

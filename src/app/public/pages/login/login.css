@@ -1,89 +1,189 @@
-/* Contenedor principal */
-.login {
+/* LOGIN SECTION */
+.login-section {
+  position: relative;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f4f7fc;
+  padding: 3rem 1rem;
+  background: url('/assets/img/banner-login.jpg') center/cover no-repeat;
+}
+
+.login-section .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+
+/* LOGIN CARD */
+.login-card {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  padding: 3rem 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 420px;
   text-align: center;
-  padding: 20px;
-  min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
-/* Imagen superior (opcional) */
-.login-img {
-  margin-bottom: 25px;
+/* HEADER */
+.login-header .logo-login {
   width: 120px;
-  height: auto;
+  margin-bottom: 1rem;
 }
 
-/* Título */
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #2e7d32; /* verde similar al signup */
+.login-header h2 {
+  margin-bottom: 0.3rem;
+  color: #004080;
+  font-size: 1.6rem;
 }
 
-/* Tarjeta del formulario */
-mat-card {
-  width: 100%;
-  max-width: 380px;
-  padding: 25px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
-  background-color: #fff;
+.login-header p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1.8rem;
 }
 
-/* Campos de entrada */
-mat-form-field {
-  width: 100%;
-  margin-bottom: 15px;
+/* FORM */
+.login-form .form-group {
+  margin-bottom: 1.3rem;
+  text-align: left;
 }
 
-/* Botón principal */
-button {
-  width: 100%;
-  margin-top: 20px;
-  padding: 12px;
-  background-color: #43a047;
-  color: #fff;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #2e7d32;
-}
-
-/* Mensaje de error */
-.error {
-  color: #d32f2f;
-  margin-top: 15px;
+.login-form label {
+  display: block;
   font-weight: 500;
-  background-color: #fdecea;
-  padding: 8px;
-  border-radius: 6px;
+  margin-bottom: 0.4rem;
+  color: #003366;
+  font-size: 0.95rem;
 }
 
-/* Adaptación para pantallas pequeñas */
+.login-form input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-form input:focus {
+  border: 1px solid #004080;
+  box-shadow: 0 0 6px rgba(0, 64, 128, 0.3);
+  outline: none;
+}
+
+/* BOTÓN LOGIN */
+.btn-login {
+  width: 100%;
+  background: #8ab900;
+  color: #fff;
+  padding: 1rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.btn-login:hover {
+  background: #6f9205;
+  transform: translateY(-2px);
+}
+
+/* LINKS */
+.extra-links {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.extra-links a {
+  color: #004080;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.extra-links a:hover {
+  color: #0066cc;
+}
+
+.register-link {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.register-link a {
+  color: #004080;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.register-link a:hover {
+  color: #0066cc;
+}
+
+
+/* ANIMACIÓN */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
 @media (max-width: 600px) {
-  .login {
-    padding: 10px;
+  .login-card {
+    padding: 2.2rem 1.8rem;
   }
 
-  .login-img {
-    width: 90px;
+  .login-header h2 {
+    font-size: 1.4rem;
   }
 
-  h1 {
-    font-size: 20px;
+  .login-form input {
+    font-size: 0.95rem;
   }
 
-  mat-card {
-    padding: 20px;
+  .btn-login {
+    padding: 0.9rem;
+    font-size: 0.95rem;
   }
+}
+
+/* ===== PASSWORD FIELD WITH ICON ===== */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 2.8rem; /* espacio para el ícono */
+}
+
+.password-wrapper i {
+  position: absolute;
+  right: 1rem;
+  color: #888;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.password-wrapper i:hover {
+  color: #004080;
 }

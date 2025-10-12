@@ -1,38 +1,56 @@
-<mat-card class="signup-card">
-  <h2>Registro de Usuario</h2>
-  <form (ngSubmit)="registrar()">
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Usuario</mat-label>
-      <input matInput [(ngModel)]="user.username" name="username" required />
-    </mat-form-field>
+<section class="register-section">
+  <div class="overlay"></div>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Contraseña</mat-label>
-      <input matInput [(ngModel)]="user.password" name="password" type="password" required />
-    </mat-form-field>
+  <div class="register-card">
+    <div class="register-header">
+      <img src="/assets/img/logo-puntos-verdes.png" alt="Logo Puntos Verdes" class="logo-register">
+      <h2>Crea tu cuenta</h2>
+      <p>Únete a <strong>Puntos Verdes</strong> y empieza a reciclar con recompensas</p>
+    </div>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Nombre</mat-label>
-      <input matInput [(ngModel)]="user.nombre" name="nombre" />
-    </mat-form-field>
+    <form (ngSubmit)="registrar()" class="register-form">
+      <div class="form-group">
+        <label for="username"><i class="fa-solid fa-user"></i> Usuario</label>
+        <input type="text" id="username" name="username" [(ngModel)]="user.username" placeholder="Tu nombre de usuario"
+          required />
+      </div>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Apellido</mat-label>
-      <input matInput [(ngModel)]="user.apellido" name="apellido" />
-    </mat-form-field>
+      <div class="form-group">
+        <label for="password"><i class="fa-solid fa-lock"></i> Contraseña</label>
+        <div class="password-wrapper">
+          <input [type]="showPassword ? 'text' : 'password'" id="password" name="password" [(ngModel)]="user.password"
+            placeholder="••••••••" required />
+          <i class="fa-solid" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+            (click)="togglePasswordVisibility()"></i>
+        </div>
+      </div>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Email</mat-label>
-      <input matInput [(ngModel)]="user.email" name="email" type="email" required />
-    </mat-form-field>
+      <div class="form-group">
+        <label for="nombre"><i class="fa-solid fa-id-card"></i> Nombre</label>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="user.nombre" placeholder="Tu nombre" />
+      </div>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Celular</mat-label>
-      <input matInput [(ngModel)]="user.celular" name="celular" />
-    </mat-form-field>
+      <div class="form-group">
+        <label for="apellido"><i class="fa-solid fa-id-card"></i> Apellido</label>
+        <input type="text" id="apellido" name="apellido" [(ngModel)]="user.apellido" placeholder="Tu apellido" />
+      </div>
 
-    <button mat-raised-button color="primary" type="submit">
-      Registrar
-    </button>
-  </form>
-</mat-card>
+      <div class="form-group">
+        <label for="email"><i class="fa-solid fa-envelope"></i> Correo electrónico</label>
+        <input type="email" id="email" name="email" [(ngModel)]="user.email" placeholder="ejemplo@gmail.com" required />
+      </div>
+
+      <div class="form-group">
+        <label for="celular"><i class="fa-solid fa-phone"></i> Celular</label>
+        <input type="text" id="celular" name="celular" [(ngModel)]="user.celular" placeholder="Tu número de celular" />
+      </div>
+
+      <button type="submit" class="btn-register">Registrarse</button>
+
+      <p class="login-link">
+        ¿Ya tienes cuenta?
+        <a routerLink="/login">Inicia sesión aquí</a>
+      </p>
+    </form>
+  </div>
+</section>
