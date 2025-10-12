@@ -1,27 +1,26 @@
-/* ====== LAYOUT GENERAL ====== */
 .admin-layout {
   display: grid;
-  grid-template-columns: 240px 1fr; /* Sidebar fijo a la izquierda */
+  grid-template-columns: 240px 1fr;
   height: 100vh;
   background-color: #f4f6f8;
   overflow: hidden;
 }
 
-/* ====== SIDEBAR ====== */
-.sidebar {
+/* === SIDEBAR === */
+.sidebar-container {
   grid-column: 1 / 2;
-  height: 100%;
-  overflow-y: auto;
   position: fixed;
-  width: 240px;
   top: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
-  z-index: 1000;
+  width: 240px;
+  height: 100%;
+  background: #1b2433;
+  z-index: 1100; /* ✅ Más alto que el overlay */
+  transition: transform 0.3s ease;
+  transform: translateX(0);
 }
 
-/* ====== SECCIÓN DERECHA ====== */
+/* === SECCIÓN DERECHA === */
 .main-section {
   grid-column: 2 / 3;
   display: flex;
@@ -30,21 +29,6 @@
   overflow: hidden;
 }
 
-/* ====== NAVBAR (parte superior del contenido) ====== */
-.navbar {
-  height: 64px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 900;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-}
-
-/* ====== CONTENIDO ====== */
 .content-area {
   flex: 1;
   background-color: #fbffff;
@@ -52,46 +36,37 @@
   height: calc(100vh - 64px);
 }
 
-/* ====== SCROLL PERSONALIZADO ====== */
-.sidebar::-webkit-scrollbar,
-.content-area::-webkit-scrollbar {
-  width: 8px;
+/* === OVERLAY === */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000; /* ✅ Debajo del sidebar */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-.sidebar::-webkit-scrollbar-thumb,
-.content-area::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.content-area::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.15);
-}
-
-/* ====== RESPONSIVE ====== */
-@media (max-width: 992px) {
-  .admin-layout {
-    grid-template-columns: 70px 1fr;
-  }
-
-  .sidebar {
-    width: 70px;
-  }
-
-  .main-section {
-    margin-left: 70px;
-  }
-}
-
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
-  .sidebar {
-    position: fixed;
-    width: 220px;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
+  .admin-layout {
+    grid-template-columns: 1fr;
   }
 
-  .sidebar.open {
+  .sidebar-container {
+    transform: translateX(-100%);
+    width: 220px;
+  }
+
+  .sidebar-container.open {
     transform: translateX(0);
   }
 
@@ -99,7 +74,7 @@
     margin-left: 0;
   }
 
-  .navbar {
-    justify-content: space-between;
+  .content-area {
+    padding: 0;
   }
 }

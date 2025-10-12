@@ -1,8 +1,24 @@
 <div class="admin-layout">
-  <app-admin-sidebar class="sidebar"></app-admin-sidebar>
+  <!-- Overlay oscuro -->
+  <div
+    class="overlay"
+    [class.show]="sidebarOpen"
+    (click)="toggleSidebar()"
+  ></div>
 
+  <!-- Sidebar -->
+  <app-admin-sidebar
+    [isOpen]="sidebarOpen"
+    (closeSidebar)="toggleSidebar()"
+  ></app-admin-sidebar>
+
+  <!-- Sección principal -->
   <div class="main-section">
-    <app-admin-navbar class="navbar"></app-admin-navbar>
+    <app-admin-navbar
+      (sidebarToggle)="toggleSidebar()"
+      class="navbar"
+    ></app-admin-navbar>
+
     <div class="content-area">
       <router-outlet></router-outlet>
     </div>

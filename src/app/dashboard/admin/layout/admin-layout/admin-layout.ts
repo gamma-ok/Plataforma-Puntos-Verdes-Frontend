@@ -10,5 +10,9 @@ import { AdminSidebar } from '../../components/admin-sidebar/admin-sidebar';
   styleUrl: './admin-layout.css'
 })
 export class AdminLayout {
-  
+  sidebarOpen = false;
+
+  toggleSidebar() {
+    this.sidebarOpen = !this.sidebarOpen;
+  }
 }

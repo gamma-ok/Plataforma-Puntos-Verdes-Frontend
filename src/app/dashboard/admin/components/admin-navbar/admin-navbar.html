@@ -1,27 +1,26 @@
 <header class="admin-navbar">
-  <!-- Lado Izquierdo -->
+  <!-- Botón menú (solo mobile) -->
+  <button class="menu-toggle" (click)="toggleSidebar()">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <!-- Título -->
   <div class="admin-left">
     <h1 class="dashboard-title">Dashboard Admin</h1>
   </div>
 
-  <!-- Lado Derecho -->
+  <!-- Lado derecho -->
   <div class="admin-right">
     <!-- Notificación -->
-    <div class="notification-icon">
-      <i class="fa-solid fa-bell"></i>
-    </div>
+    <i class="fa-solid fa-bell notification-icon"></i>
 
-    <!-- Info del Usuario -->
+    <!-- Info del usuario -->
     <div class="user-info">
       <div class="user-details">
-        <span class="user-name">Name & Last name</span>
-        <span class="user-role">Role</span>
+        <span class="user-name">Santiago Gamarra</span>
+        <span class="user-role">ADMIN</span>
       </div>
-      <img
-        src="assets/img/default.png"
-        alt="Perfil"
-        class="user-avatar"
-      />
+      <img src="assets/img/default.png" alt="Perfil" class="user-avatar" />
     </div>
   </div>
 </header>

@@ -1,8 +1,7 @@
-/* === Navbar del Dashboard === */
 .admin-navbar {
   width: 100%;
-  background: #ffffff;
   height: 70px;
+  background: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,44 +10,42 @@
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border-bottom: 1px solid #e0e0e0;
+  transition: background 0.3s ease;
 }
 
-/* === Izquierda: título del panel === */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: #004080;
+  cursor: pointer;
+}
+
 .admin-left .dashboard-title {
   font-size: 1.4rem;
   font-weight: 600;
   color: #004080;
-  letter-spacing: 0.5px;
   margin: 0;
 }
 
-/* === Derecha: zona del usuario y notificaciones === */
 .admin-right {
   display: flex;
   align-items: center;
-  gap: 1.8rem;
+  gap: 1.5rem;
 }
 
-/* Ícono de notificación */
 .notification-icon {
-  position: relative;
-  cursor: pointer;
   font-size: 1.4rem;
   color: #004080;
+  cursor: pointer;
   transition: color 0.3s;
 }
 
-.notification-icon:hover {
-  color: #0073e6;
-}
-
-/* Info del usuario */
 .user-info {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  cursor: pointer;
+  gap: 0.6rem;
 }
 
 .user-details {
@@ -61,68 +58,50 @@
 .user-name {
   font-weight: 600;
   color: #003366;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .user-role {
-  font-size: 13px;
+  font-size: 12px;
   color: #777;
 }
 
-/* Imagen de usuario */
 .user-avatar {
   width: 42px;
   height: 42px;
   border-radius: 50%;
   object-fit: cover;
-  transition: transform 0.3s ease;
 }
 
-.user-avatar:hover {
-  transform: scale(1.05);
-}
-
-/* === Responsive === */
-.admin-left {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem; /* espacio entre botón y título */
-}
-
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #004080;
-}
-
-/* Media query para móvil */
+/* Responsive */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: inline-block; /* visible solo en móvil */
-  }
-
-  .admin-left {
-    width: 100%;
-    justify-content: flex-start;
-  }
-
   .admin-navbar {
-    flex-direction: row; /* se mantiene en fila, no columna */
-    flex-wrap: wrap;     /* permite que los elementos bajen de línea si es necesario */
-    height: auto;
-    padding: 0.5rem 1rem;
+    background: #1b2433;
+    padding: 0 1rem;
   }
 
-  .admin-right {
-    width: 100%;
-    justify-content: flex-end;
-    margin-top: 0.5rem;
+  .menu-toggle {
+    display: inline-block;
+    color: #ffffff;
   }
 
-  .dashboard-title {
-    font-size: 1.2rem;
+  .admin-left .dashboard-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ffffff;
+  }
+
+  .notification-icon {
+    color: #ffffff;
+  }
+
+  .user-details {
+    display: none;
+  }
+
+  .user-avatar {
+    width: 36px;
+    height: 36px;
+    display: inline-block;
   }
 }
