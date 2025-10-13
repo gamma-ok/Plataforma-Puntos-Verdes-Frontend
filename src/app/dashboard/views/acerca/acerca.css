@@ -1,0 +1,231 @@
+/* ===== CONTENEDOR GENERAL ===== */
+.about-wrapper {
+  padding: 2rem;
+  background: #f8fafc;
+  color: #1b2433;
+  min-height: 100vh;
+}
+
+/* ===== ENCABEZADO ===== */
+.about-header {
+  text-align: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.about-header h2 {
+  color: #004080;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.about-header p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* ===== QUIÉNES SOMOS ===== */
+.about-section {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+/* 🔧 Tamaño del logo */
+.about-content img {
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.about-content h3 {
+  color: #004080;
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.about-content p {
+  color: #333;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ===== MISIÓN Y VISIÓN ===== */
+.mission-vision {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.mv-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.8rem;
+  flex: 1 1 300px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.mv-card:hover {
+  transform: translateY(-4px);
+}
+
+.mv-card i {
+  font-size: 2rem;
+  color: #004080;
+  margin-bottom: 0.8rem;
+}
+
+.mv-card h4 {
+  color: #004080;
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.mv-card p {
+  color: #333;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ===== VALORES ===== */
+.values-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.values-section h3 {
+  color: #004080;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.value-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-3px);
+}
+
+.value-card i {
+  font-size: 1.8rem;
+  color: #8ab900;
+  margin-bottom: 0.5rem;
+}
+
+.value-card h5 {
+  color: #8ab900;
+  font-weight: 500;
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+}
+
+.value-card p {
+  color: #333;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* ===== EQUIPO ===== */
+.team-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.team-section h3 {
+  color: #004080;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 🔧 Tamaño base de los cards */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 300px));
+  justify-content: center;
+  gap: 2rem;
+}
+
+.team-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+}
+
+/* 🔧 Imagen adaptable */
+.team-card img {
+  width: 100%;
+  height: 200px;
+  border-radius: 14px;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 1rem;
+}
+
+.team-card h4 {
+  color: #004080;
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.cargo {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card {
+    padding: 1.6rem;
+  }
+
+  .team-card img {
+    height: 180px;
+  }
+}

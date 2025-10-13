@@ -1,1 +1,79 @@
-<h1>Vista de acerca de</h1>
+<div class="about-wrapper">
+  <!-- ENCABEZADO -->
+  <section class="about-header">
+    <h2><i class="fa-solid fa-leaf"></i> Acerca de Puntos Verdes</h2>
+    <p>Conoce más sobre nuestra misión, visión y el equipo que impulsa esta plataforma sostenible.</p>
+  </section>
+
+  <!-- SECCIÓN QUIÉNES SOMOS -->
+  <section class="about-section">
+    <div class="about-content">
+      <img src="/assets/img/logo-banner-acerca.png" alt="Logo Puntos Verdes" class="about-image" />
+      <div>
+        <h3>¿Quiénes Somos?</h3>
+        <p>
+          Somos una iniciativa dedicada a promover hábitos sostenibles mediante un sistema de puntos ecológicos.
+          Buscamos incentivar a los ciudadanos a contribuir con el medio ambiente a través del reciclaje y la educación ambiental.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISIÓN Y VISIÓN -->
+  <section class="mission-vision">
+    <div class="mv-card">
+      <i class="fa-solid fa-bullseye"></i>
+      <h4>Misión</h4>
+      <p>
+        Fomentar la responsabilidad ambiental y la participación ciudadana mediante una plataforma interactiva que recompensa acciones ecológicas.
+      </p>
+    </div>
+
+    <div class="mv-card">
+      <i class="fa-solid fa-eye"></i>
+      <h4>Visión</h4>
+      <p>
+        Ser la principal red de colaboración ecológica en Latinoamérica, impulsando un cambio cultural hacia la sostenibilidad.
+      </p>
+    </div>
+  </section>
+
+  <!-- VALORES -->
+  <section class="values-section">
+    <h3>Nuestros Valores</h3>
+    <div class="values-grid">
+      <div class="value-card">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+        <h5>Compromiso</h5>
+        <p>Trabajamos con pasión y dedicación por un planeta más verde.</p>
+      </div>
+      <div class="value-card">
+        <i class="fa-solid fa-recycle"></i>
+        <h5>Sostenibilidad</h5>
+        <p>Buscamos el equilibrio entre desarrollo y respeto ambiental.</p>
+      </div>
+      <div class="value-card">
+        <i class="fa-solid fa-people-group"></i>
+        <h5>Colaboración</h5>
+        <p>Creemos en el poder de la comunidad y el trabajo conjunto.</p>
+      </div>
+      <div class="value-card">
+        <i class="fa-solid fa-lightbulb"></i>
+        <h5>Innovación</h5>
+        <p>Usamos la tecnología como medio para generar conciencia ecológica.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section class="team-section">
+    <h3>Nuestro Equipo</h3>
+    <div class="team-grid">
+      <div class="team-card" *ngFor="let miembro of equipo">
+        <img [src]="miembro.foto" [alt]="miembro.nombre" />
+        <h4>{{ miembro.nombre }}</h4>
+        <p class="cargo">{{ miembro.cargo }}</p>
+      </div>
+    </div>
+  </section>
+</div>
