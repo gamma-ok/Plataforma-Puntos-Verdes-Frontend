@@ -1,1 +1,53 @@
-<p>ciudadano-sidebar works!</p>
+<aside class="sidebar-container" [ngClass]="{ open: isOpen }">
+  <div class="sidebar-header">
+    <img src="assets/img/dashboard-logo-puntos-verdes.png" class="sidebar-logo" />
+  </div>
+
+  <ul class="sidebar-menu">
+    <!-- INICIO -->
+    <li class="section-title">MENÚ</li>
+    <li routerLink="/ciudadano/inicio" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-house"></i> Inicio
+    </li>
+    <li routerLink="/ciudadano/perfil" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-user"></i> Perfil
+    </li>
+
+    <!-- GESTIÓN -->
+    <li class="section-title">GESTIÓN</li>
+    <li routerLink="/ciudadano/entregas/registrar" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-plus-circle"></i> Registrar Entrega
+    </li>
+    <li routerLink="/ciudadano/entregas" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-boxes-packing"></i> Mis Entregas
+    </li>
+    <li routerLink="/ciudadano/puntos-verdes" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-seedling"></i> Puntos Verdes
+    </li>
+
+    <!-- RECOMPENSAS -->
+    <li class="section-title">RECOMPENSAS</li>
+    <li routerLink="/ciudadano/recompensas" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-gift"></i> Recompensas Disponibles
+    </li>
+    <li routerLink="/ciudadano/canjes" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-retweet"></i> Canjear Puntos
+    </li>
+
+    <!-- CAMPAÑAS -->
+    <li class="section-title">CAMPAÑAS</li>
+    <li routerLink="/ciudadano/campanias" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-bullhorn"></i> Campañas Activas
+    </li>
+
+    <!-- SOPORTE -->
+    <li class="section-title">SOPORTE</li>
+    <li routerLink="/ciudadano/ayuda" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-circle-question"></i> Ayuda
+    </li>
+    <li routerLink="/ciudadano/acerca" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-leaf"></i> Acerca de
+    </li>
+
+  </ul>
+</aside>

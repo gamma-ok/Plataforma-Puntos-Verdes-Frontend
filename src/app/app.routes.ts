@@ -13,6 +13,9 @@ import { PublicLayout } from './public/layout/public-layout/public-layout';
 import { AdminLayout } from './dashboard/admin/layout/admin-layout/admin-layout';
 import { AdminInicio } from './dashboard/admin/pages/admin-inicio/admin-inicio';
 
+import { CiudadanoLayout } from './dashboard/ciudadano/layout/ciudadano-layout/ciudadano-layout';
+import { CiudadanoInicio } from './dashboard/ciudadano/pages/ciudadano-inicio/ciudadano-inicio';
+
 export const routes: Routes = [
   {
     path: '',
@@ -45,7 +48,16 @@ export const routes: Routes = [
         data: { title: 'Inicio | Dashboard Admin | Puntos Verdes' }
       },
     ]
+  },
+  {
+    path: 'ciudadano',
+    component: CiudadanoLayout,
+    children: [
+      {
+        path: 'ciudadano-inicio', component: CiudadanoInicio,
+        data: { title: 'Inicio | Dashboard Ciudadano | Puntos Verdes' }
+      },
+    ]
   }
-
 
 ];

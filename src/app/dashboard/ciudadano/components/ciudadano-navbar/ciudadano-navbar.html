@@ -1,1 +1,26 @@
-<p>ciudadano-navbar works!</p>
+<header class="ciudadano-navbar">
+  <!-- Botón menú (solo mobile) -->
+  <button class="menu-toggle" (click)="toggleSidebar()">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <!-- Título -->
+  <div class="ciudadano-left">
+    <h1 class="dashboard-title">Dashboard Ciudadano</h1>
+  </div>
+
+  <!-- Lado derecho -->
+  <div class="ciudadano-right">
+    <!-- Notificación -->
+    <i class="fa-solid fa-bell notification-icon"></i>
+
+    <!-- Info del usuario -->
+    <div class="user-info">
+      <div class="user-details">
+        <span class="user-name">Santiago Gamarra</span>
+        <span class="user-role">ciudadano</span>
+      </div>
+      <img src="assets/img/default.png" alt="Perfil" class="user-avatar" />
+    </div>
+  </div>
+</header>

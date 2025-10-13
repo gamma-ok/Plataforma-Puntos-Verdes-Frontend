@@ -1,13 +1,13 @@
-<div class="admin-layout">
+<div class="ciudadano-layout">
   <!-- Overlay oscuro -->
   <div class="overlay" [class.show]="sidebarOpen" (click)="toggleSidebar()"></div>
 
   <!-- Sidebar -->
-  <app-admin-sidebar [isOpen]="sidebarOpen" (closeSidebar)="toggleSidebar()"></app-admin-sidebar>
+  <app-ciudadano-sidebar [isOpen]="sidebarOpen" (closeSidebar)="toggleSidebar()"></app-ciudadano-sidebar>
 
   <!-- Sección principal -->
   <div class="main-section">
-    <app-admin-navbar (sidebarToggle)="toggleSidebar()" class="navbar"></app-admin-navbar>
+    <app-ciudadano-navbar (sidebarToggle)="toggleSidebar()" class="navbar"></app-ciudadano-navbar>
 
     <div class="content-area">
       <router-outlet></router-outlet>

@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './ciudadano-inicio.css'
 })
 export class CiudadanoInicio {
-
+  
 }
