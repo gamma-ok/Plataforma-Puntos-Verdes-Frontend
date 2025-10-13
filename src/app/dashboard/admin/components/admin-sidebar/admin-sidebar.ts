@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { EventEmitter, Input, Output } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-admin-sidebar',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, RouterModule],
   templateUrl: './admin-sidebar.html',
   styleUrl: './admin-sidebar.css'
 })

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { EventEmitter, Input, Output } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-recolector-sidebar',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, RouterModule],
   templateUrl: './recolector-sidebar.html',
   styleUrl: './recolector-sidebar.css'
 })

@@ -22,27 +22,48 @@ import { RecolectorInicio } from './dashboard/recolector/pages/recolector-inicio
 import { CiudadanoLayout } from './dashboard/ciudadano/layout/ciudadano-layout/ciudadano-layout';
 import { CiudadanoInicio } from './dashboard/ciudadano/pages/ciudadano-inicio/ciudadano-inicio';
 
+import { Perfil } from './dashboard/views/perfil/perfil';
+import { Ranking } from './dashboard/views/ranking/ranking';
+import { Ayuda } from './dashboard/views/ayuda/ayuda';
+import { Acerca } from './dashboard/views/acerca/acerca';
+
 export const routes: Routes = [
   {
     path: '',
     component: PublicLayout,
     children: [
-      { path: '', component: Inicio,
-        data: { title: 'Inicio | Puntos Verdes' } },
-      { path: 'servicios', component: Servicios,
-        data: { title: 'Servicios | Puntos Verdes' } },
-      { path: 'usuarios', component: Usuarios,
-        data: { title: 'Usuarios | Puntos Verdes' } },
-      { path: 'estadisticas', component: Estadisticas,
-        data: { title: 'Estadísticas | Puntos Verdes' } },
-      { path: 'recompensas', component: Recompensas,
-        data: { title: 'Recompensas | Puntos Verdes' } },
-      { path: 'contacto', component: Contacto,
-        data: { title: 'Contacto | Puntos Verdes' } },
-      { path: 'signup', component: Signup,
-        data: { title: 'Registrarse | Puntos Verdes' } },
-      { path: 'login', component: Login,
-        data: { title: 'Iniciar sesión | Puntos Verdes' } },
+      {
+        path: '', component: Inicio,
+        data: { title: 'Inicio | Puntos Verdes' }
+      },
+      {
+        path: 'servicios', component: Servicios,
+        data: { title: 'Servicios | Puntos Verdes' }
+      },
+      {
+        path: 'usuarios', component: Usuarios,
+        data: { title: 'Usuarios | Puntos Verdes' }
+      },
+      {
+        path: 'estadisticas', component: Estadisticas,
+        data: { title: 'Estadísticas | Puntos Verdes' }
+      },
+      {
+        path: 'recompensas', component: Recompensas,
+        data: { title: 'Recompensas | Puntos Verdes' }
+      },
+      {
+        path: 'contacto', component: Contacto,
+        data: { title: 'Contacto | Puntos Verdes' }
+      },
+      {
+        path: 'signup', component: Signup,
+        data: { title: 'Registrarse | Puntos Verdes' }
+      },
+      {
+        path: 'login', component: Login,
+        data: { title: 'Iniciar sesión | Puntos Verdes' }
+      },
     ]
   },
   {
@@ -50,9 +71,17 @@ export const routes: Routes = [
     component: AdminLayout,
     children: [
       {
-        path: 'admin-inicio', component: AdminInicio,
+        path: 'inicio', component: AdminInicio,
         data: { title: 'Inicio | Dashboard Admin | Puntos Verdes' }
       },
+      {
+        path: 'perfil', component: Perfil,
+        data: { title: 'Perfil | Dashboard Admin | Puntos Verdes' }
+      },
+      {
+        path: 'ranking', component: Ranking,
+        data: { title: 'Ranking | Dashboard Admin | Puntos Verdes' }
+      }
     ]
   },
   {
@@ -60,9 +89,17 @@ export const routes: Routes = [
     component: MunicipalidadLayout,
     children: [
       {
-        path: 'municipalidad-inicio', component: MunicipalidadInicio,
+        path: 'inicio', component: MunicipalidadInicio,
         data: { title: 'Inicio | Dashboard Municipalidad | Puntos Verdes' }
       },
+      {
+        path: 'perfil', component: Perfil,
+        data: { title: 'Perfil | Dashboard Municipalidad | Puntos Verdes' }
+      },
+      {
+        path: 'ranking', component: Ranking,
+        data: { title: 'Ranking | Dashboard Municipalidad | Puntos Verdes' }
+      }
     ]
   },
   {
@@ -70,9 +107,25 @@ export const routes: Routes = [
     component: RecolectorLayout,
     children: [
       {
-        path: 'recolector-inicio', component: RecolectorInicio,
+        path: 'inicio', component: RecolectorInicio,
         data: { title: 'Inicio | Dashboard Recolector | Puntos Verdes' }
       },
+      {
+        path: 'perfil', component: Perfil,
+        data: { title: 'Perfil | Dashboard Recolector | Puntos Verdes' }
+      },
+      {
+        path: 'ranking', component: Ranking,
+        data: { title: 'Ranking | Dashboard Recolector | Puntos Verdes' }
+      },
+      {
+        path: 'ayuda', component: Ayuda,
+        data: { title: 'Ayuda | Dashboard Recolector | Puntos Verdes' }
+      },
+      {
+        path: 'acerca', component: Acerca,
+        data: { title: 'Acerca de | Dashboard Recolector | Puntos Verdes' }
+      }
     ]
   },
   {
@@ -80,10 +133,25 @@ export const routes: Routes = [
     component: CiudadanoLayout,
     children: [
       {
-        path: 'ciudadano-inicio', component: CiudadanoInicio,
+        path: 'inicio', component: CiudadanoInicio,
         data: { title: 'Inicio | Dashboard Ciudadano | Puntos Verdes' }
       },
+      {
+        path: 'perfil', component: Perfil,
+        data: { title: 'Perfil | Dashboard Ciudadano | Puntos Verdes' }
+      },
+      {
+        path: 'ranking', component: Ranking,
+        data: { title: 'Ranking | Dashboard Ciudadano | Puntos Verdes' }
+      },
+      {
+        path: 'ayuda', component: Ayuda,
+        data: { title: 'Ayuda | Dashboard Ciudadano | Puntos Verdes' }
+      },
+      {
+        path: 'acerca', component: Acerca,
+        data: { title: 'Acerca de | Dashboard Ciudadano | Puntos Verdes' }
+      }
     ]
   }
-
 ];

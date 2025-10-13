@@ -56,13 +56,13 @@ export class Login {
             console.log('Rol detectado:', role);
 
             if (role === 'ADMIN')
-              this.router.navigate(['/admin/admin-inicio']);
+              this.router.navigate(['/admin/inicio']);
             else if (role === 'MUNICIPALIDAD')
-              this.router.navigate(['/municipalidad/municipalidad-inicio']);
+              this.router.navigate(['/municipalidad/inicio']);
             else if (role === 'RECOLECTOR')
-              this.router.navigate(['/recolector/recolector-inicio']);
+              this.router.navigate(['/recolector/inicio']);
             else if (role === 'CIUDADANO')
-              this.router.navigate(['/ciudadano/ciudadano-inicio']);
+              this.router.navigate(['/ciudadano/inicio']);
             else this.router.navigate(['/']);
           },
           error: () => {
