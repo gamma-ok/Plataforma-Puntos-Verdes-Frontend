@@ -71,12 +71,13 @@
   height: 42px;
   border-radius: 50%;
   object-fit: cover;
+  cursor: pointer;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .admin-navbar {
-    background: #1b2433;
+    background: #1a2433;
     padding: 0 1rem;
   }
 

@@ -1,5 +1,5 @@
 .sidebar-container {
-  background: #1b2433;
+  background: #1a2433;
   width: 240px;
   height: 100vh;
   color: #fbffff;
@@ -23,6 +23,7 @@
 
 .sidebar-logo {
   width: 160px;
+  cursor: pointer;
 }
 
 .sidebar-menu {
@@ -31,24 +32,47 @@
   width: 100%;
 }
 
+/* Estilo para los ítems clicables */
 .sidebar-menu li {
   padding: 0.75rem 1rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #fbffff;
-  transition: background 0.3s;
+  color: #f0f8ff;
+  transition: background 0.3s, color 0.3s;
 }
 
-.sidebar-menu li:hover {
+/* Hover solo para ítems que no sean títulos de sección */
+.sidebar-menu li:not(.section-title):hover {
   background: rgba(138, 185, 0, 0.15);
   color: #8ab900;
 }
 
+/* Ítem activo */
 .sidebar-menu li.active {
   background: #8ab900;
   color: #fff;
+}
+
+/* Estilo para los títulos de sección */
+.section-title {
+  padding: 0.75rem 1rem 0.25rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  pointer-events: none;
+  margin-top: 1rem;
+}
+
+.sidebar-menu .section-title {
+  color: #778899;
+  font-weight: 500;
+}
+
+/* El primer título de sección no necesita margen superior extra */
+.sidebar-menu li:first-child.section-title {
+  margin-top: 0;
 }
 
 /* ===== Responsive ===== */

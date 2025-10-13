@@ -1,24 +1,57 @@
 <aside class="sidebar-container" [ngClass]="{ open: isOpen }">
   <div class="sidebar-header">
-    <img src="assets/img/dashboard-logo-puntos-verdes.png" alt="Logo" class="sidebar-logo" />
+    <img src="assets/img/dashboard-logo-puntos-verdes.png" class="sidebar-logo" />
   </div>
 
   <ul class="sidebar-menu">
+    <!-- INICIO -->
     <li routerLink="/admin/inicio" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-id-card"></i> Perfil
+      <i class="fa-solid fa-house"></i> Inicio
+    </li>
+
+    <!-- GESTIÓN -->
+    <li class="section-title">GESTIÓN</li>
+    <li routerLink="/admin/usuarios" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-users"></i> Usuarios
     </li>
     <li routerLink="/admin/entregas" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-boxes-packing"></i> Entregas
+    </li>
+    <li routerLink="/admin/puntos-verdes" routerLinkActive="active" (click)="close()">
       <i class="fa-solid fa-seedling"></i> Puntos Verdes
     </li>
-    <li routerLink="/admin/rutas" routerLinkActive="active" (click)="close()">
+    <li routerLink="/admin/campanias" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-bullhorn"></i> Campañas
+    </li>
+    <li routerLink="/admin/recompensas" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-gift"></i> Recompensas
+    </li>
+    <li routerLink="/admin/canjes" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-retweet"></i> Canjes
+    </li>
+
+    <!-- SOPORTE -->
+    <li class="section-title">SOPORTE</li>
+    <li routerLink="/admin/incidencias" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-triangle-exclamation"></i> Incidencias
+    </li>
+
+    <!-- ESTADÍSTICAS -->
+    <li class="section-title">ESTADÍSTICAS</li>
+    <li routerLink="/admin/estadisticas" routerLinkActive="active" (click)="close()">
       <i class="fa-solid fa-chart-line"></i> Reportes
     </li>
-    <li routerLink="/admin/incidencias" routerLinkActive="active" (click)="close()">
+
+    <!-- OTROS -->
+    <li class="section-title">OTROS</li>
+    <li routerLink="/admin/ayuda" routerLinkActive="active" (click)="close()">
       <i class="fa-solid fa-circle-question"></i> Ayuda
     </li>
-    <li routerLink="/admin/perfil" routerLinkActive="active" (click)="close()">
+    <li routerLink="/admin/acerca" routerLinkActive="active" (click)="close()">
       <i class="fa-solid fa-leaf"></i> Acerca de
     </li>
+    <li routerLink="/admin/perfil" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-user"></i> Perfil
+    </li>
   </ul>
-  
 </aside>
