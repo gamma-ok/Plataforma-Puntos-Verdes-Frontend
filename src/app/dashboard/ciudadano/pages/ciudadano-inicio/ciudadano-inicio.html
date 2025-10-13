@@ -1,10 +1,83 @@
-<div class="main-content">
+<div class="dashboard-wrapper">
 
-    <main class="dashboard-content">
-        <div class="dashboard-header">
-            <h2>Bienvenido, Username</h2>
-            <p>Este es tu panel personal, donde puedes gestionar tus entregas y rutas de recolección.</p>
+    <!-- ENCABEZADO -->
+    <section class="dashboard-header">
+        <div class="welcome">
+            <h2>{{ greeting }}, <span class="username">{{ username }}</span> 🌿</h2>
+            <p>Has acumulado <strong>{{ puntos }}</strong> puntos este mes. ¡Sigue reciclando y gana más recompensas!
+            </p>
         </div>
-    </main>
+    </section>
+
+    <!-- CARDS -->
+    <section class="cards-grid">
+        <div class="card">
+            <div class="icon-circle"><i class="fa-solid fa-coins"></i></div>
+            <h3>{{ puntos }} Puntos</h3>
+            <p>Acumulados hasta la fecha</p>
+        </div>
+
+        <div class="card">
+            <div class="icon-circle"><i class="fa-solid fa-boxes-packing"></i></div>
+            <h3>Última entrega</h3>
+            <p>Plásticos - 5kg (12/09/2025)</p>
+        </div>
+
+        <div class="card">
+            <div class="icon-circle"><i class="fa-solid fa-seedling"></i></div>
+            <h3>Impacto Ambiental</h3>
+            <p>Has reducido {{ impacto }} kg de CO₂</p>
+        </div>
+
+        <div class="card">
+            <div class="icon-circle"><i class="fa-solid fa-gift"></i></div>
+            <h3>Recompensas</h3>
+            <a routerLink="/ciudadano/recompensas" class="btn-cta">Canjear ahora</a>
+        </div>
+    </section>
+
+    <!-- GRÁFICA -->
+    <section class="chart-section">
+        <div class="chart-container">
+            <h3 class="section-title">Tus materiales reciclados</h3>
+            <canvas #chartCanvas></canvas>
+        </div>
+    </section>
+
+    <!-- ESTADÍSTICAS -->
+    <section class="stats-section">
+        <h3 class="section-title">Resumen de Actividad</h3>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h4>Entregas realizadas</h4>
+                <p>12</p>
+            </div>
+            <div class="stat-item">
+                <h4>Material más reciclado</h4>
+                <p>Plástico</p>
+            </div>
+            <div class="stat-item">
+                <h4>Puntos por entregar</h4>
+                <p>+25</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAMPAÑAS -->
+    <section class="campaigns-section">
+        <h3 class="section-title">Campañas activas</h3>
+        <div class="campaigns-grid">
+            <div class="campaign-card" *ngFor="let c of campanias">
+                <h4>{{ c.titulo }}</h4>
+                <p>{{ c.descripcion }}</p>
+                <button class="btn-cta">Participar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ECO TIP -->
+    <section class="eco-tip">
+        <p><i class="fa-solid fa-leaf"></i> {{ ecoTip }}</p>
+    </section>
 
 </div>

@@ -1,4 +1,248 @@
-.dashboard-content {
+/* CONTENEDOR GENERAL */
+.perfil-wrapper {
   padding: 2rem;
+  background: #f8fafc;
+  color: #1b2433;
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
 }
 
+/* ENCABEZADO */
+.perfil-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.perfil-info {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.perfil-avatar {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.rol-badge {
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+/* BOTONES */
+.perfil-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-primary,
+.btn-outline {
+  border-radius: 25px;
+  padding: 0.6rem 1.3rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #004080;
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #002d66;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #004080;
+  color: #004080;
+}
+
+.btn-outline:hover {
+  background: #004080;
+  color: #fff;
+}
+
+/* DATOS PERSONALES */
+.perfil-details {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+  margin-top: 2rem;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.detail-item label {
+  font-weight: 600;
+  color: #004080;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+/* RANKING */
+.perfil-ranking {
+  margin-top: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+}
+
+.ranking-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.ranking-info {
+  flex: 1;
+  min-width: 260px;
+}
+
+.ranking-position {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #004080;
+}
+
+.ranking-position span {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.progress-bar {
+  background: #e0e0e0;
+  border-radius: 10px;
+  height: 10px;
+  margin-top: 0.6rem;
+  overflow: hidden;
+}
+
+.progress {
+  background: linear-gradient(90deg, #8ab900, #56b4d3);
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+.ranking-icon {
+  background: #e8f5e9;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.ranking-icon i {
+  font-size: 2rem;
+  color: #8ab900;
+}
+
+/* HISTORIAL */
+.perfil-history {
+  margin-top: 2rem;
+}
+
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+.history-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.06);
+  transition: transform 0.3s;
+}
+
+.history-card:hover {
+  transform: translateY(-4px);
+}
+
+.points {
+  color: #8ab900;
+  font-weight: 600;
+}
+
+/* NOTIFICACIONES */
+.perfil-notifications {
+  margin-top: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+}
+
+.notifications-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f4f7f9;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  color: #004080;
+}
+
+.notifications-box i {
+  font-size: 1.8rem;
+  color: #8ab900;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .perfil-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .perfil-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+.perfil-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; /* ajusta valor entre las líneas */
+}
+
+.perfil-info h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.perfil-info p {
+  margin: 0;
+  color: #555;
+}
+
+.perfil-info .rol-badge {
+  margin: 0;
+  align-self: flex-start;
+}
