@@ -1,0 +1,289 @@
+/* ===== CONTENEDOR GENERAL ===== */
+.ranking-wrapper {
+  padding: 2rem;
+  background: #f8fafc;
+  min-height: 100vh;
+  color: #1b2433;
+}
+
+/* ===== ENCABEZADO PRINCIPAL ===== */
+.ranking-header {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+}
+
+.ranking-header h2 {
+  color: #004080;
+  margin-bottom: 1.2rem;
+  font-size: 1.6rem;
+}
+
+/* ===== USUARIO (RESUMEN) ===== */
+.user-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.user-info h3 {
+  margin: 0;
+  color: #004080;
+  font-weight: 500;
+}
+
+/* === Rol (igual que en perfil) === */
+.rol-badge {
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  display: inline-block;
+  margin-top: 0.2rem;
+}
+
+/* === Posición y puntos del usuario === */
+.user-rank {
+  text-align: right;
+}
+
+.user-rank p {
+  margin: 0;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.user-rank h4 {
+  margin: 0.3rem 0;
+  color: #004080;
+  font-size: 1.6rem;
+}
+
+.puntos-badge {
+  color: #8ab900;
+  font-weight: 600;
+}
+
+/* ===== SECCIÓN TABLA ===== */
+.ranking-table-section {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
+  padding: 1.5rem 2rem;
+}
+
+/* ===== CONTROLES DE TABLA ===== */
+.ranking-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.ranking-info {
+  font-weight: 500;
+  color: #004080;
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* ===== BUSCADOR ===== */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-select,
+.search-input {
+  border: 1px solid #ccd7e0;
+  border-radius: 12px;
+  outline: none;
+  font-size: 0.95rem;
+  transition: 0.3s ease;
+}
+
+.search-select {
+  padding: 0.6rem 1rem;
+  background: #f9fbfd;
+  color: #004080;
+  cursor: pointer;
+}
+
+.search-select:hover,
+.search-select:focus {
+  border-color: #004080;
+  background: #eef5ff;
+}
+
+.search-input {
+  width: 320px;
+  padding: 0.6rem 1rem;
+}
+
+.search-input:focus {
+  border-color: #004080;
+  box-shadow: 0 0 5px rgba(0, 64, 128, 0.25);
+}
+
+/* ===== TABLA ===== */
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ranking-table th {
+  color: #004080;
+  font-weight: 600;
+  border-bottom: 2px solid #e0e0e0;
+  padding: 1rem 0.5rem;
+}
+
+.ranking-table td {
+  padding: 0.9rem 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  font-weight: 500; /* ← Cambia aquí para hacer el texto más o menos negrita */
+}
+
+/* ===== CELDA JUGADOR ===== */
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.table-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.points {
+  color: #2e7d32;
+}
+
+/* ===== DESTACADOS (TOP 3) ===== */
+.top1 {
+  background: linear-gradient(to right, #fff8e1, #fffde7);
+}
+
+.top2 {
+  background: linear-gradient(to right, #f3f4f6, #fafafa);
+}
+
+.top3 {
+  background: linear-gradient(to right, #f9f7f7, #fdfcfb);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  /* --- Encabezado y usuario --- */
+  .ranking-header {
+    text-align: center; /* Centra el título y todo su contenido */
+  }
+
+  .ranking-header h2 {
+    text-align: center;
+  }
+
+  .user-summary {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .user-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .user-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .rol-badge {
+    font-size: 0.8rem;
+  }
+
+  .user-rank {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .user-rank h4 {
+    font-size: 1.4rem;
+  }
+
+  .puntos-badge {
+    display: block;
+    margin-top: 0.3rem;
+  }
+}
+
+/* --- Móviles pequeños --- */
+@media (max-width: 768px) {
+  .ranking-wrapper {
+    padding: 1rem;
+  }
+
+  .ranking-header {
+    padding: 1.5rem;
+  }
+
+  /* Centrado del texto "Clasificación general de usuarios" */
+  .ranking-controls {
+    flex-direction: column;
+    align-items: center; /* Cambiado de flex-start a center */
+    text-align: center;
+  }
+
+  .ranking-info {
+    text-align: center;
+    width: 100%;
+  }
+
+  .search-container {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .search-select,
+  .search-input {
+    width: 100%;
+  }
+
+  .ranking-table th,
+  .ranking-table td {
+    font-size: 0.9rem;
+  }
+
+  .table-avatar {
+    width: 38px;
+    height: 38px;
+  }
+}

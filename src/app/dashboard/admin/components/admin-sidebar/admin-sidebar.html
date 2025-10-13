@@ -1,60 +1,82 @@
 <aside class="sidebar-container" [ngClass]="{ open: isOpen }">
   <div class="sidebar-header">
-    <img src="assets/img/logo-puntos-verdes-v2.png" class="sidebar-logo" />
+    <a routerLink="../"><img src="assets/img/logo-puntos-verdes-v2.png" class="sidebar-logo" /></a>
   </div>
 
   <ul class="sidebar-menu">
     <!-- INICIO -->
     <li class="section-title">MENÚ</li>
-    <li routerLink="/admin/inicio" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-house"></i> Inicio
+    <li>
+      <a routerLink="/admin/inicio" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-house"></i> Inicio
+      </a>
     </li>
-    <li routerLink="/admin/perfil" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-user"></i> Perfil
+    <li>
+      <a routerLink="/admin/perfil" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-user"></i> Perfil
+      </a>
     </li>
-    <li routerLink="/admin/ranking" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-trophy"></i> Ranking
+    <li>
+      <a routerLink="/admin/ranking" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-trophy"></i> Ranking
+      </a>
     </li>
 
     <!-- GESTIÓN -->
     <li class="section-title">GESTIÓN</li>
-    <li routerLink="/admin/usuarios" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-users"></i> Usuarios
+    <li>
+      <a routerLink="/admin/usuarios" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-users"></i> Usuarios
+      </a>
     </li>
-    <li routerLink="/admin/entregas" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-boxes-packing"></i> Entregas
+    <li>
+      <a routerLink="/admin/entregas" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-boxes-packing"></i> Entregas
+      </a>
     </li>
-    <li routerLink="/admin/canjes" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-retweet"></i> Canjes
+    <li>
+      <a routerLink="/admin/canjes" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-retweet"></i> Canjes
+      </a>
     </li>
 
     <!-- ADMINISTRACIÓN -->
     <li class="section-title">ADMINISTRACIÓN</li>
-    <li routerLink="/admin/puntos-verdes" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-seedling"></i> Puntos Verdes
+    <li>
+      <a routerLink="/admin/puntos-verdes" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-seedling"></i> Puntos Verdes
+      </a>
     </li>
-    <li routerLink="/admin/campanias" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-bullhorn"></i> Campañas
+    <li>
+      <a routerLink="/admin/campanias" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-bullhorn"></i> Campañas
+      </a>
     </li>
-    <li routerLink="/admin/recompensas" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-gift"></i> Recompensas
+    <li>
+      <a routerLink="/admin/recompensas" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-gift"></i> Recompensas
+      </a>
     </li>
 
-    <!-- CONTROL Y SOPORTE -->
+    <!-- CONTROL -->
     <li class="section-title">CONTROL</li>
-    <li routerLink="/admin/incidencias" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-triangle-exclamation"></i> Incidencias
+    <li>
+      <a routerLink="/admin/incidencias" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-triangle-exclamation"></i> Incidencias
+      </a>
     </li>
-    <li routerLink="/admin/reportes" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-chart-line"></i> Reportes
+    <li>
+      <a routerLink="/admin/reportes" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-chart-line"></i> Reportes
+      </a>
     </li>
 
-    
-
+    <!-- SALIR -->
     <li class="section-title">SALIR</li>
     <li>
-      <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+      <a href="#">
+        <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+      </a>
     </li>
-
   </ul>
 </aside>

@@ -9,8 +9,8 @@
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 9999; /* Aumenta prioridad sobre overlay */
-  pointer-events: auto; /* Asegura clics en móviles */
+  z-index: 9999;
+  pointer-events: auto;
   transition: transform 0.3s ease;
 }
 
@@ -33,30 +33,33 @@
   width: 100%;
 }
 
-/* Estilo para los ítems clicables */
-.sidebar-menu li {
-  padding: 0.6rem 1rem;
-  cursor: pointer;
+/* ========= Enlaces dentro del sidebar ========= */
+.sidebar-menu li a {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 0.6rem 1rem;
   color: #f0f8ff;
+  text-decoration: none;
   transition: background 0.3s, color 0.3s;
+  border-left: 4px solid transparent;
 }
 
-/* Hover solo para ítems que no sean títulos de sección */
-.sidebar-menu li:not(.section-title):hover {
+/* Hover solo para enlaces (no títulos de sección) */
+.sidebar-menu li a:hover {
   background: rgba(138, 185, 0, 0.15);
   color: #8ab900;
+  border-left: 4px solid #8ab900;
 }
 
-/* Ítem activo */
-.sidebar-menu li.active {
+/* Enlace activo */
+.sidebar-menu li a.active {
   background: #8ab900;
   color: #fff;
+  border-left: 4px solid #8ab900;
 }
 
-/* Estilo para los títulos de sección */
+/* Títulos de sección */
 .section-title {
   padding: 0.75rem 1rem 0.25rem;
   font-size: 0.75rem;
@@ -64,28 +67,15 @@
   letter-spacing: 1px;
   pointer-events: none;
   margin-top: 1rem;
-}
-
-.sidebar-menu .section-title {
   color: #778899;
   font-weight: 500;
-}
-
-/* El primer título de sección no necesita margen superior extra */
-.sidebar-menu li:first-child.section-title {
-  margin-top: 0;
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .sidebar-container {
     transform: translateX(-100%);
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
     width: 220px;
-    transition: transform 0.3s ease;
   }
 
   .sidebar-container.open {

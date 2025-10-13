@@ -1,55 +1,77 @@
 <aside class="sidebar-container" [ngClass]="{ open: isOpen }">
   <div class="sidebar-header">
-    <img src="assets/img/logo-puntos-verdes-v2.png" class="sidebar-logo" />
+    <a routerLink="../"><img src="assets/img/logo-puntos-verdes-v2.png" class="sidebar-logo" /></a>
   </div>
 
   <ul class="sidebar-menu">
     <!-- INICIO -->
     <li class="section-title">MENÚ</li>
-    <li routerLink="/recolector/inicio" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-house"></i> Inicio
+    <li>
+      <a routerLink="/recolector/inicio" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-house"></i> Inicio
+      </a>
     </li>
-    <li routerLink="/recolector/perfil" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-user"></i> Perfil
+    <li>
+      <a routerLink="/recolector/perfil" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-user"></i> Perfil
+      </a>
     </li>
-    <li routerLink="/recolector/ranking" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-trophy"></i> Ranking
+    <li>
+      <a routerLink="/recolector/ranking" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-trophy"></i> Ranking
+      </a>
     </li>
 
     <!-- OPERACIONES -->
     <li class="section-title">OPERACIONES</li>
-    <li routerLink="/recolector/entregas/registrar" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-plus-circle"></i> Registrar Entrega
+    <li>
+      <a routerLink="/recolector/entregas/registrar" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-plus-circle"></i> Registrar Entrega
+      </a>
     </li>
-    <li routerLink="/recolector/incidencias" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-triangle-exclamation"></i> Reportar Incidencia
+    <li>
+      <a routerLink="/recolector/incidencias" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-triangle-exclamation"></i> Reportar Incidencia
+      </a>
     </li>
 
     <!-- INFORMACIÓN -->
     <li class="section-title">INFORMACIÓN</li>
-    <li routerLink="/recolector/campanias" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-bullhorn"></i> Campañas
+    <li>
+      <a routerLink="/recolector/campanias" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-bullhorn"></i> Campañas
+      </a>
     </li>
-    <li routerLink="/recolector/puntos-verdes" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-seedling"></i> Puntos Verdes
+    <li>
+      <a routerLink="/recolector/puntos-verdes" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-seedling"></i> Puntos Verdes
+      </a>
     </li>
-    <li routerLink="/recolector/entregas" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-boxes-packing"></i> Mis Entregas
+    <li>
+      <a routerLink="/recolector/entregas" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-boxes-packing"></i> Mis Entregas
+      </a>
     </li>
 
     <!-- SOPORTE -->
     <li class="section-title">SOPORTE</li>
-    <li routerLink="/recolector/ayuda" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-circle-question"></i> Ayuda
+    <li>
+      <a routerLink="/recolector/ayuda" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-circle-question"></i> Ayuda
+      </a>
     </li>
-    <li routerLink="/recolector/acerca" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-leaf"></i> Acerca de
+    <li>
+      <a routerLink="/recolector/acerca" routerLinkActive="active" (click)="close()">
+        <i class="fa-solid fa-leaf"></i> Acerca de
+      </a>
     </li>
 
+    <!-- SALIR -->
     <li class="section-title">SALIR</li>
     <li>
-      <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+      <a href="#">
+        <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+      </a>
     </li>
-
   </ul>
 </aside>

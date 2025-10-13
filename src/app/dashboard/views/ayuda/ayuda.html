@@ -1,1 +1,44 @@
-<h1>Vista de ayuda</h1>
+<div class="help-wrapper">
+  <!-- ENCABEZADO -->
+  <section class="help-header">
+    <h2><i class="fa-solid fa-circle-question"></i> Centro de Ayuda</h2>
+    <p>Encuentra respuestas rápidas o comunícate con nosotros si necesitas más soporte.</p>
+
+    <!-- Buscador -->
+    <div class="help-search">
+      <input 
+        type="text" 
+        placeholder="Buscar una pregunta o tema..." 
+        [(ngModel)]="searchTerm"
+      />
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+  </section>
+
+  <!-- FAQ LISTA -->
+  <section class="faq-section">
+    <div 
+      class="faq-item" 
+      *ngFor="let faq of filteredFaqs()" 
+      (click)="toggleFaq(faq)"
+      [class.active]="faq.open"
+    >
+      <div class="faq-question">
+        <h3>{{ faq.pregunta }}</h3>
+        <i class="fa-solid" [ngClass]="faq.open ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+      </div>
+      <div class="faq-answer">
+        <p>{{ faq.respuesta }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="help-contact">
+    <h3>¿Aún necesitas ayuda?</h3>
+    <p>Contáctanos y nuestro equipo te asistirá lo antes posible.</p>
+    <a routerLink="/contacto" class="contact-link" target="_blank">
+        <i class="fa-solid fa-headset"></i> Contactar Soporte
+    </a>
+  </section>
+</div>
