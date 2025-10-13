@@ -1,1 +1,26 @@
-<p>recolector-navbar works!</p>
+<header class="recolector-navbar">
+  <!-- Botón menú (solo mobile) -->
+  <button class="menu-toggle" (click)="toggleSidebar()">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <!-- Título -->
+  <div class="recolector-left">
+    <h1 class="dashboard-title">Dashboard Recolector</h1>
+  </div>
+
+  <!-- Lado derecho -->
+  <div class="recolector-right">
+    <!-- Notificación -->
+    <i class="fa-solid fa-bell notification-icon"></i>
+
+    <!-- Info del usuario -->
+    <div class="user-info">
+      <div class="user-details">
+        <span class="user-name">Santiago Gamarra</span>
+        <span class="user-role">RECOLECTOR</span>
+      </div>
+      <img src="assets/img/default.png" alt="Perfil" class="user-avatar" />
+    </div>
+  </div>
+</header>

@@ -1,4 +1,4 @@
-.municipalidad-layout {
+.recolector-layout {
   display: grid;
   grid-template-columns: 240px 1fr;
   height: 100vh;
@@ -57,7 +57,7 @@
 
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
-  .municipalidad-layout {
+  .recolector-layout {
     grid-template-columns: 1fr;
   }
 

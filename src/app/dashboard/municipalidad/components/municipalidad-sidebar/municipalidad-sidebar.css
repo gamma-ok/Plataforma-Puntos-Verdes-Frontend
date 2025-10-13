@@ -1,0 +1,93 @@
+.sidebar-container {
+  background: #1a2433;
+  width: 240px;
+  height: 100vh;
+  color: #fbffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 950;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-container .sidebar-header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.sidebar-logo {
+  width: 160px;
+  cursor: pointer;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+/* Estilo para los ítems clicables */
+.sidebar-menu li {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f0f8ff;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Hover solo para ítems que no sean títulos de sección */
+.sidebar-menu li:not(.section-title):hover {
+  background: rgba(138, 185, 0, 0.15);
+  color: #8ab900;
+}
+
+/* Ítem activo */
+.sidebar-menu li.active {
+  background: #8ab900;
+  color: #fff;
+}
+
+/* Estilo para los títulos de sección */
+.section-title {
+  padding: 0.75rem 1rem 0.25rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  pointer-events: none;
+  margin-top: 1rem;
+}
+
+.sidebar-menu .section-title {
+  color: #778899;
+  font-weight: 500;
+}
+
+/* El primer título de sección no necesita margen superior extra */
+.sidebar-menu li:first-child.section-title {
+  margin-top: 0;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .sidebar-container {
+    transform: translateX(-100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 220px;
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar-container.open {
+    transform: translateX(0);
+  }
+}

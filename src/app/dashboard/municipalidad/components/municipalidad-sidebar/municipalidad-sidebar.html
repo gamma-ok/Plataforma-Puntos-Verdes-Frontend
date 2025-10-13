@@ -1,1 +1,58 @@
-<p>municipalidad-sidebar works!</p>
+<aside class="sidebar-container" [ngClass]="{ open: isOpen }">
+  <div class="sidebar-header">
+    <img src="assets/img/logo-puntos-verdes-v2.png" class="sidebar-logo" />
+  </div>
+
+  <ul class="sidebar-menu">
+    <!-- INICIO -->
+    <li class="section-title">MENÚ</li>
+    <li routerLink="/municipalidad/inicio" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-house"></i> Inicio
+    </li>
+    <li routerLink="/municipalidad/perfil" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-user"></i> Perfil
+    </li>
+    <li routerLink="/municipalidad/ranking" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-trophy"></i> Ranking
+    </li>
+
+    <!-- GESTIÓN -->
+    <li class="section-title">GESTIÓN</li>
+    <li routerLink="/municipalidad/usuarios" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-users"></i> Usuarios
+    </li>
+    <li routerLink="/municipalidad/entregas" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-boxes-packing"></i> Entregas
+    </li>
+    <li routerLink="/municipalidad/canjes" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-retweet"></i> Canjes
+    </li>
+
+    <!-- ADMINISTRACIÓN -->
+    <li class="section-title">ADMINISTRACIÓN</li>
+    <li routerLink="/municipalidad/puntos-verdes" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-seedling"></i> Puntos Verdes
+    </li>
+    <li routerLink="/municipalidad/campanias" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-bullhorn"></i> Campañas
+    </li>
+    <li routerLink="/municipalidad/recompensas" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-gift"></i> Recompensas
+    </li>
+
+    <!-- CONTROL Y SOPORTE -->
+    <li class="section-title">CONTROL</li>
+    <li routerLink="/municipalidad/incidencias" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-triangle-exclamation"></i> Incidencias
+    </li>
+    <li routerLink="/municipalidad/reportes" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-chart-line"></i> Reportes
+    </li>
+
+    <li class="section-title">SALIR</li>
+    <li>
+      <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+    </li>
+
+  </ul>
+</aside>

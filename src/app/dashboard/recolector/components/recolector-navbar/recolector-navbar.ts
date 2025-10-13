@@ -1,11 +1,26 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-recolector-navbar',
-  imports: [],
+  standalone: true,
+  imports: [
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule
+  ],
   templateUrl: './recolector-navbar.html',
   styleUrl: './recolector-navbar.css'
 })
 export class RecolectorNavbar {
+  @Output() sidebarToggle = new EventEmitter<void>();
 
+  toggleSidebar() {
+    this.sidebarToggle.emit();
+  }
 }

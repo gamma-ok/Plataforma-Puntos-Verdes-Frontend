@@ -1,13 +1,13 @@
-<div class="municipalidad-layout">
+<div class="recolector-layout">
   <!-- Overlay oscuro -->
   <div class="overlay" [class.show]="sidebarOpen" (click)="toggleSidebar()"></div>
 
   <!-- Sidebar -->
-  <app-municipalidad-sidebar [isOpen]="sidebarOpen" (closeSidebar)="toggleSidebar()"></app-municipalidad-sidebar>
+  <app-recolector-sidebar [isOpen]="sidebarOpen" (closeSidebar)="toggleSidebar()"></app-recolector-sidebar>
 
   <!-- Sección principal -->
   <div class="main-section">
-    <app-municipalidad-navbar (sidebarToggle)="toggleSidebar()" class="navbar"></app-municipalidad-navbar>
+    <app-recolector-navbar (sidebarToggle)="toggleSidebar()" class="navbar"></app-recolector-navbar>
 
     <div class="content-area">
       <router-outlet></router-outlet>

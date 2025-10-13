@@ -1,1 +1,55 @@
-<p>recolector-sidebar works!</p>
+<aside class="sidebar-container" [ngClass]="{ open: isOpen }">
+  <div class="sidebar-header">
+    <img src="assets/img/logo-puntos-verdes-v2.png" class="sidebar-logo" />
+  </div>
+
+  <ul class="sidebar-menu">
+    <!-- INICIO -->
+    <li class="section-title">MENÚ</li>
+    <li routerLink="/recolector/inicio" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-house"></i> Inicio
+    </li>
+    <li routerLink="/recolector/perfil" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-user"></i> Perfil
+    </li>
+    <li routerLink="/recolector/ranking" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-trophy"></i> Ranking
+    </li>
+
+    <!-- OPERACIONES -->
+    <li class="section-title">OPERACIONES</li>
+    <li routerLink="/recolector/entregas/registrar" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-plus-circle"></i> Registrar Entrega
+    </li>
+    <li routerLink="/recolector/incidencias" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-triangle-exclamation"></i> Reportar Incidencia
+    </li>
+
+    <!-- INFORMACIÓN -->
+    <li class="section-title">INFORMACIÓN</li>
+    <li routerLink="/recolector/campanias" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-bullhorn"></i> Campañas
+    </li>
+    <li routerLink="/recolector/puntos-verdes" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-seedling"></i> Puntos Verdes
+    </li>
+    <li routerLink="/recolector/entregas" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-boxes-packing"></i> Mis Entregas
+    </li>
+
+    <!-- SOPORTE -->
+    <li class="section-title">SOPORTE</li>
+    <li routerLink="/recolector/ayuda" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-circle-question"></i> Ayuda
+    </li>
+    <li routerLink="/recolector/acerca" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-leaf"></i> Acerca de
+    </li>
+
+    <li class="section-title">SALIR</li>
+    <li>
+      <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+    </li>
+
+  </ul>
+</aside>

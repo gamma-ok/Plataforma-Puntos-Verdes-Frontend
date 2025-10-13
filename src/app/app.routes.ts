@@ -13,6 +13,12 @@ import { PublicLayout } from './public/layout/public-layout/public-layout';
 import { AdminLayout } from './dashboard/admin/layout/admin-layout/admin-layout';
 import { AdminInicio } from './dashboard/admin/pages/admin-inicio/admin-inicio';
 
+import { MunicipalidadLayout } from './dashboard/municipalidad/layout/municipalidad-layout/municipalidad-layout';
+import { MunicipalidadInicio } from './dashboard/municipalidad/pages/municipalidad-inicio/municipalidad-inicio';
+
+import { RecolectorLayout } from './dashboard/recolector/layout/recolector-layout/recolector-layout';
+import { RecolectorInicio } from './dashboard/recolector/pages/recolector-inicio/recolector-inicio';
+
 import { CiudadanoLayout } from './dashboard/ciudadano/layout/ciudadano-layout/ciudadano-layout';
 import { CiudadanoInicio } from './dashboard/ciudadano/pages/ciudadano-inicio/ciudadano-inicio';
 
@@ -46,6 +52,26 @@ export const routes: Routes = [
       {
         path: 'admin-inicio', component: AdminInicio,
         data: { title: 'Inicio | Dashboard Admin | Puntos Verdes' }
+      },
+    ]
+  },
+  {
+    path: 'municipalidad',
+    component: MunicipalidadLayout,
+    children: [
+      {
+        path: 'municipalidad-inicio', component: MunicipalidadInicio,
+        data: { title: 'Inicio | Dashboard Municipalidad | Puntos Verdes' }
+      },
+    ]
+  },
+  {
+    path: 'recolector',
+    component: RecolectorLayout,
+    children: [
+      {
+        path: 'recolector-inicio', component: RecolectorInicio,
+        data: { title: 'Inicio | Dashboard Recolector | Puntos Verdes' }
       },
     ]
   },

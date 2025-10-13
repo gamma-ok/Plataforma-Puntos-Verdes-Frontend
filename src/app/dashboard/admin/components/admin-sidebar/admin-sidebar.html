@@ -1,6 +1,6 @@
 <aside class="sidebar-container" [ngClass]="{ open: isOpen }">
   <div class="sidebar-header">
-    <img src="assets/img/dashboard-logo-puntos-verdes.png" class="sidebar-logo" />
+    <img src="assets/img/logo-puntos-verdes-v2.png" class="sidebar-logo" />
   </div>
 
   <ul class="sidebar-menu">
@@ -12,6 +12,9 @@
     <li routerLink="/admin/perfil" routerLinkActive="active" (click)="close()">
       <i class="fa-solid fa-user"></i> Perfil
     </li>
+    <li routerLink="/admin/ranking" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-trophy"></i> Ranking
+    </li>
 
     <!-- GESTIÓN -->
     <li class="section-title">GESTIÓN</li>
@@ -21,6 +24,12 @@
     <li routerLink="/admin/entregas" routerLinkActive="active" (click)="close()">
       <i class="fa-solid fa-boxes-packing"></i> Entregas
     </li>
+    <li routerLink="/admin/canjes" routerLinkActive="active" (click)="close()">
+      <i class="fa-solid fa-retweet"></i> Canjes
+    </li>
+
+    <!-- ADMINISTRACIÓN -->
+    <li class="section-title">ADMINISTRACIÓN</li>
     <li routerLink="/admin/puntos-verdes" routerLinkActive="active" (click)="close()">
       <i class="fa-solid fa-seedling"></i> Puntos Verdes
     </li>
@@ -30,20 +39,21 @@
     <li routerLink="/admin/recompensas" routerLinkActive="active" (click)="close()">
       <i class="fa-solid fa-gift"></i> Recompensas
     </li>
-    <li routerLink="/admin/canjes" routerLinkActive="active" (click)="close()">
-      <i class="fa-solid fa-retweet"></i> Canjes
-    </li>
 
-    <!-- SOPORTE -->
-    <li class="section-title">SOPORTE</li>
+    <!-- CONTROL Y SOPORTE -->
+    <li class="section-title">CONTROL</li>
     <li routerLink="/admin/incidencias" routerLinkActive="active" (click)="close()">
       <i class="fa-solid fa-triangle-exclamation"></i> Incidencias
     </li>
-
-    <!-- ESTADÍSTICAS -->
-    <li class="section-title">ESTADÍSTICAS</li>
-    <li routerLink="/admin/estadisticas" routerLinkActive="active" (click)="close()">
+    <li routerLink="/admin/reportes" routerLinkActive="active" (click)="close()">
       <i class="fa-solid fa-chart-line"></i> Reportes
+    </li>
+
+    
+
+    <li class="section-title">SALIR</li>
+    <li>
+      <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
     </li>
 
   </ul>
