@@ -9,7 +9,8 @@
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 950;
+  z-index: 9999; /* Aumenta prioridad sobre overlay */
+  pointer-events: auto; /* Asegura clics en móviles */
   transition: transform 0.3s ease;
 }
 
