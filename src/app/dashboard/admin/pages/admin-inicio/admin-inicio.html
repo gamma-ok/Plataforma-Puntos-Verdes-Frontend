@@ -1,38 +1,89 @@
-<div class="main-content">
-  
-  <main class="dashboard-content">
-      <div class="dashboard-header">
-        <h2>Bienvenido, Username</h2>
-        <p>Este es tu panel personal, donde puedes gestionar tus entregas y rutas de recolección.</p>
+<div class="admin-dashboard-wrapper">
+  <!-- ENCABEZADO -->
+  <header class="dashboard-header">
+    <h2>{{ greeting }}, <span class="username">{{ username }}</span> 🛠️</h2>
+    <p>Panel de control general del sistema Puntos Verdes. Supervisa métricas, gestiona usuarios y mantén todo en equilibrio.</p>
+  </header>
+
+  <!-- RESUMEN GENERAL -->
+  <section class="summary-cards">
+    <div class="card">
+      <div class="icon-circle"><i class="fa-solid fa-users"></i></div>
+      <h3>Usuarios Registrados</h3>
+      <p>1,245</p>
+    </div>
+    <div class="card">
+      <div class="icon-circle"><i class="fa-solid fa-boxes-packing"></i></div>
+      <h3>Entregas Totales</h3>
+      <p>8,764</p>
+    </div>
+    <div class="card">
+      <div class="icon-circle"><i class="fa-solid fa-gift"></i></div>
+      <h3>Recompensas Canjeadas</h3>
+      <p>2,310</p>
+    </div>
+    <div class="card">
+      <div class="icon-circle"><i class="fa-solid fa-chart-line"></i></div>
+      <h3>Puntos Acumulados</h3>
+      <p>125,890</p>
+    </div>
+  </section>
+
+  <!-- GRÁFICO DE ACTIVIDAD -->
+  <section class="chart-section">
+    <div class="chart-container">
+      <h3 class="section-title">Actividad General</h3>
+      <canvas #adminChartCanvas></canvas>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE INDICADORES -->
+  <section class="indicators-section">
+    <h3 class="section-title">Indicadores de Gestión</h3>
+    <div class="indicators-grid">
+      <div class="indicator">
+        <i class="fa-solid fa-seedling"></i>
+        <h4>Puntos Verdes Activos</h4>
+        <p>32</p>
       </div>
-
-      <div class="cards-grid">
-        <div class="card">
-          <i class="fa-solid fa-boxes-packing"></i>
-          <h3>Entregas pendientes</h3>
-          <p>Actualmente 12 entregas en tu zona</p>
-        </div>
-
-        <div class="card">
-          <i class="fa-solid fa-route"></i>
-          <h3>Última ruta realizada</h3>
-          <p>Calle A - Calle B - Calle C (12/09/2025)</p>
-        </div>
-
-        <div class="card">
-          <i class="fa-solid fa-seedling"></i>
-          <h3>Puntos verdes asignados</h3>
-          <p>Zona 3: 350 Puntos verdes</p>
-        </div>
-
-        <div class="card">
-          <i class="fa-solid fa-triangle-exclamation"></i>
-          <h3>Reporte de incidencias</h3>
-          <a href="" class="btn-cta">Reportar ahora</a>
-        </div>
+      <div class="indicator">
+        <i class="fa-solid fa-bullhorn"></i>
+        <h4>Campañas Vigentes</h4>
+        <p>5</p>
       </div>
-    </main>
+      <div class="indicator">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <h4>Incidencias Pendientes</h4>
+        <p>3</p>
+      </div>
+      <div class="indicator">
+        <i class="fa-solid fa-database"></i>
+        <h4>Reportes Generados</h4>
+        <p>28</p>
+      </div>
+    </div>
+  </section>
 
+  <!-- ALERTAS ADMINISTRATIVAS -->
+  <section class="alerts-section">
+    <h3 class="section-title">Alertas del Sistema</h3>
+    <div class="alert-card">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <div>
+        <strong>Atención:</strong> Existen 3 incidencias sin resolver en la zona norte.
+      </div>
+    </div>
+    <div class="alert-card alert-info">
+      <i class="fa-solid fa-circle-info"></i>
+      <div>
+        <strong>Nota:</strong> Recuerda revisar la configuración de puntos verdes antes de la próxima campaña.
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSEJO ECO -->
+  <div class="eco-tip">
+    <i class="fa-solid fa-lightbulb"></i>
+    <p>Promueve campañas que incentiven el reciclaje electrónico: pequeños cambios generan grandes impactos.</p>
+  </div>
 </div>
-
-

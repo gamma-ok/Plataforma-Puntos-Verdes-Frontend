@@ -1,10 +1,76 @@
-<div class="main-content">
+<div class="dashboard-wrapper">
 
-    <main class="dashboard-content">
-        <div class="dashboard-header">
-            <h2>Bienvenido, Username</h2>
-            <p>Este es tu panel personal, donde puedes gestionar tus entregas y rutas de recolección.</p>
-        </div>
-    </main>
+  <!-- ENCABEZADO -->
+  <section class="dashboard-header">
+    <div class="welcome">
+      <h2>{{ greeting }}, <span class="username">{{ username }}</span> 🚛</h2>
+      <p>Hoy tienes <strong>{{ entregasPendientes }}</strong> entregas pendientes. ¡Planifica tus rutas y mantén el flujo verde!</p>
+    </div>
+  </section>
+
+  <!-- CARDS PRINCIPALES -->
+  <section class="cards-grid">
+    <div class="card">
+      <div class="icon-circle"><i class="fa-solid fa-truck"></i></div>
+      <h3>{{ entregasCompletadas }}</h3>
+      <p>Entregas completadas</p>
+    </div>
+
+    <div class="card">
+      <div class="icon-circle"><i class="fa-solid fa-route"></i></div>
+      <h3>{{ rutasActivas }}</h3>
+      <p>Rutas activas</p>
+    </div>
+
+    <div class="card">
+      <div class="icon-circle"><i class="fa-solid fa-clock"></i></div>
+      <h3>{{ horasTrabajadas }}</h3>
+      <p>Horas registradas</p>
+    </div>
+
+    <div class="card">
+      <div class="icon-circle"><i class="fa-solid fa-seedling"></i></div>
+      <h3>{{ impactoAmbiental }} kg CO₂</h3>
+      <p>Reducción ambiental</p>
+    </div>
+  </section>
+
+  <!-- GRÁFICO DE RENDIMIENTO -->
+  <section class="chart-section">
+    <div class="chart-container">
+      <h3 class="section-title">Rendimiento semanal</h3>
+      <canvas #chartCanvas></canvas>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE RUTAS PROGRAMADAS -->
+  <section class="routes-section">
+    <h3 class="section-title">Rutas programadas</h3>
+    <div class="routes-grid">
+      <div class="route-card" *ngFor="let r of rutasProgramadas">
+        <h4>{{ r.nombre }}</h4>
+        <p><i class="fa-solid fa-map-marker-alt"></i> {{ r.zona }}</p>
+        <p><i class="fa-solid fa-calendar-day"></i> {{ r.fecha }}</p>
+        <button class="btn-cta">Ver detalles</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALERTAS O NOTIFICACIONES -->
+  <section class="alerts-section" *ngIf="alertas.length > 0">
+    <h3 class="section-title">Alertas recientes</h3>
+    <div class="alert-card" *ngFor="let a of alertas">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>
+        <h4>{{ a.titulo }}</h4>
+        <p>{{ a.descripcion }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECO TIP -->
+  <section class="eco-tip">
+    <p><i class="fa-solid fa-leaf"></i> {{ ecoTip }}</p>
+  </section>
 
 </div>

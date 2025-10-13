@@ -1,4 +1,191 @@
-.dashboard-content {
+/* ===== CONTENEDOR PRINCIPAL DEL DASHBOARD ===== */
+.dashboard-wrapper {
   padding: 2rem;
+  background: #f8fafc;
+  min-height: 100vh;
+  color: #1b2433;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
 }
 
+/* ===== ENCABEZADO ===== */
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+.dashboard-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #004080;
+  margin-bottom: 0.3rem;
+}
+.dashboard-header .username {
+  color: #8ab900;
+}
+.dashboard-header p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* ===== CARDS DE RESUMEN ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.8rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  background: #e8f5e9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+}
+.icon-circle i {
+  color: #8ab900;
+  font-size: 1.8rem;
+}
+.card h3 {
+  color: #003366;
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+.card p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* ===== SECCIÓN DE GRÁFICO ===== */
+.chart-section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: center;
+}
+.chart-container {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+.chart-container canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 340px;
+}
+
+/* ===== SECCIÓN DE INDICADORES CLAVE ===== */
+.stats-section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  color: #004080;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.stat-item {
+  background: #f4f7f9;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.stat-item:hover {
+  background: #e8f5e9;
+}
+
+.stat-item h4 {
+  font-size: 0.95rem;
+  color: #004080;
+  margin-bottom: 0.4rem;
+}
+
+.stat-item p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #8ab900;
+  margin: 0;
+}
+
+/* ===== SECCIÓN DE ALERTAS ===== */
+.alerts-section {
+  margin-top: 2rem;
+}
+
+.alert-card {
+  display: flex;
+  align-items: flex-start;
+  background: #fff3cd;
+  color: #856404;
+  border-left: 6px solid #ffc107;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.alert-card i {
+  font-size: 1.4rem;
+  margin-right: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+/* ===== SECCIÓN ECO TIP ===== */
+.eco-tip {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    padding: 1.2rem;
+  }
+  .cards-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

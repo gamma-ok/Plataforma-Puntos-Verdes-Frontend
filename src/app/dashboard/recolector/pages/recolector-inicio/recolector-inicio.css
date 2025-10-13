@@ -1,4 +1,212 @@
-.dashboard-content {
+/* ===== CONTENEDOR GENERAL ===== */
+.dashboard-wrapper {
   padding: 2rem;
+  background: #f8fafc;
+  min-height: 100vh;
+  color: #1b2433;
+  font-family: "Roboto", sans-serif;
 }
 
+/* ===== ENCABEZADO ===== */
+.dashboard-header {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.dashboard-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #004080;
+  margin-bottom: 0.4rem;
+}
+.dashboard-header .username {
+  color: #8ab900;
+}
+.dashboard-header p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.section-title {
+  color: #004080;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* ===== CARDS ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  background: #e8f5e9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+}
+.icon-circle i {
+  color: #8ab900;
+  font-size: 1.8rem;
+}
+.card h3 {
+  color: #003366;
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+.card p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* ===== GRÁFICO ===== */
+.chart-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: center;
+}
+.chart-container {
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+.chart-container canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 320px;
+}
+
+/* ===== RUTAS ===== */
+.routes-section {
+  margin-top: 2rem;
+}
+.routes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.route-card {
+  background: #ffffff;
+  border-left: 5px solid #004080;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+}
+.route-card:hover {
+  transform: translateY(-4px);
+}
+.route-card h4 {
+  color: #004080;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.route-card p {
+  color: #555;
+  font-size: 0.9rem;
+  margin: 0.2rem 0;
+}
+.route-card i {
+  color: #8ab900;
+  margin-right: 0.4rem;
+}
+.btn-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #004080;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 64, 128, 0.2);
+}
+.btn-cta:hover {
+  background: #003366;
+  transform: translateY(-2px);
+}
+
+/* ===== ALERTAS ===== */
+.alerts-section {
+  margin-top: 2rem;
+}
+.alert-card {
+  display: flex;
+  align-items: flex-start;
+  background: #fff3cd;
+  color: #856404;
+  border-left: 6px solid #ffc107;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.alert-card i {
+  font-size: 1.4rem;
+  margin-right: 0.8rem;
+  margin-top: 0.2rem;
+}
+.alert-card h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.alert-card p {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+}
+
+/* ===== ECO TIP ===== */
+.eco-tip {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    padding: 1.2rem;
+  }
+  .cards-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .routes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

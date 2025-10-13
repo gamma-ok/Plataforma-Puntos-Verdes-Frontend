@@ -38,7 +38,6 @@ export class CiudadanoInicio implements AfterViewInit {
   ngAfterViewInit() {
     if (!isPlatformBrowser(this.platformId)) return;
 
-    // Intentar crear el gráfico solo cuando el canvas esté realmente disponible
     this.ngZone.runOutsideAngular(() => {
       let attempts = 0;
 
@@ -47,7 +46,6 @@ export class CiudadanoInicio implements AfterViewInit {
         if (canvas && canvas.offsetParent !== null) {
           this.initChart(canvas);
         } else if (attempts < 10) {
-          // Reintenta cada 100ms hasta que el canvas esté listo
           attempts++;
           setTimeout(tryInitChart, 100);
         }

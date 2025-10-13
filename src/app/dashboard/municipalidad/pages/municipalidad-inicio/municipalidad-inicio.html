@@ -1,10 +1,92 @@
-<div class="main-content">
+<div class="dashboard-wrapper">
 
-    <main class="dashboard-content">
-        <div class="dashboard-header">
-            <h2>Bienvenido, Username</h2>
-            <p>Este es tu panel personal, donde puedes gestionar tus entregas y rutas de recolección.</p>
-        </div>
-    </main>
+  <!-- ENCABEZADO -->
+  <section class="dashboard-header">
+    <div class="welcome">
+      <h2>{{ greeting }}, <span class="username">{{ username }}</span> 🏛️</h2>
+      <p>Panel de gestión general del programa Puntos Verdes.</p>
+    </div>
+  </section>
+
+  <!-- CARDS RESUMEN -->
+  <section class="cards-grid">
+    <div class="card">
+      <div class="icon-circle"><i class="fa-solid fa-users"></i></div>
+      <h3>{{ totalUsuarios }}</h3>
+      <p>Usuarios activos</p>
+    </div>
+
+    <div class="card">
+      <div class="icon-circle"><i class="fa-solid fa-boxes-packing"></i></div>
+      <h3>{{ totalEntregas }}</h3>
+      <p>Entregas registradas</p>
+    </div>
+
+    <div class="card">
+      <div class="icon-circle"><i class="fa-solid fa-seedling"></i></div>
+      <h3>{{ puntosVerdes }}</h3>
+      <p>Puntos verdes operativos</p>
+    </div>
+
+    <div class="card">
+      <div class="icon-circle"><i class="fa-solid fa-bullhorn"></i></div>
+      <h3>{{ campaniasActivas }}</h3>
+      <p>Campañas activas</p>
+    </div>
+
+    <div class="card">
+      <div class="icon-circle"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <h3>{{ incidenciasPendientes }}</h3>
+      <p>Incidencias por resolver</p>
+    </div>
+  </section>
+
+  <!-- GRÁFICO -->
+  <section class="chart-section">
+    <div class="chart-container">
+      <h3 class="section-title">Actividad mensual</h3>
+      <canvas #chartCanvas></canvas>
+    </div>
+  </section>
+
+  <!-- REPORTES RÁPIDOS -->
+  <section class="stats-section">
+    <h3 class="section-title">Indicadores clave</h3>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h4>Tasa de reciclaje</h4>
+        <p>{{ tasaReciclaje }}%</p>
+      </div>
+      <div class="stat-item">
+        <h4>CO₂ evitado</h4>
+        <p>{{ reduccionCO2 }} kg</p>
+      </div>
+      <div class="stat-item">
+        <h4>Puntos entregados</h4>
+        <p>{{ puntosEntregados }}</p>
+      </div>
+      <div class="stat-item">
+        <h4>Campañas completadas</h4>
+        <p>{{ campaniasCompletadas }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALERTAS -->
+  <section class="alerts-section" *ngIf="alertas.length > 0">
+    <h3 class="section-title">Alertas recientes</h3>
+    <div class="alert-card" *ngFor="let a of alertas">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <div>
+        <h4>{{ a.titulo }}</h4>
+        <p>{{ a.descripcion }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECO TIP -->
+  <section class="eco-tip">
+    <p><i class="fa-solid fa-leaf"></i> {{ ecoTip }}</p>
+  </section>
 
 </div>
