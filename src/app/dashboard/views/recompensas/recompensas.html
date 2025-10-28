@@ -1,0 +1,67 @@
+<div class="recompensas-wrapper">
+
+  <!-- Encabezado -->
+  <div class="recompensas-header">
+    <h2>Recompensas Disponibles</h2>
+    <p>Consulta las recompensas que puedes canjear con tus puntos acumulados.</p>
+  </div>
+
+  <!-- Filtro por estado -->
+  <div class="filter-bar">
+    <select class="filter-select" [(ngModel)]="estadoSeleccionado">
+      <option value="">Todos los estados</option>
+      <option value="Activo">Activos</option>
+      <option value="Inactivo">Inactivos</option>
+    </select>
+  </div>
+
+  <!-- Grid de recompensas -->
+  <div class="recompensas-grid">
+    <div
+      class="recompensa-card"
+      *ngFor="let recompensa of recompensasFiltradas()"
+      [class.inactiva]="recompensa.estado === 'Inactivo'"
+    >
+      <div class="recompensa-info">
+        <h3>{{ recompensa.nombre }}</h3>
+        <p class="descripcion">{{ recompensa.descripcion }}</p>
+
+        <p class="puntos">
+          <i class="fa-solid fa-coins"></i> {{ recompensa.puntos }} pts
+        </p>
+
+        <p class="stock" [ngClass]="{ 'agotado': recompensa.stock === 0 }">
+          Stock: {{ recompensa.stock > 0 ? recompensa.stock : 'Agotado' }}
+        </p>
+
+        <p class="estado"
+           [ngClass]="{
+             'activo': recompensa.estado === 'Activo',
+             'inactivo': recompensa.estado === 'Inactivo'
+           }">
+          Estado: {{ recompensa.estado }}
+        </p>
+
+        <button class="btn-cta"
+                [disabled]="!puedeCanjear(recompensa.puntos) || recompensa.estado !== 'Activo' || recompensa.stock === 0">
+          {{
+            recompensa.estado === 'Activo'
+              ? (recompensa.stock === 0
+                  ? 'Agotado'
+                  : (puedeCanjear(recompensa.puntos)
+                      ? 'Canjear'
+                      : 'Puntos insuficientes'))
+              : 'No disponible'
+          }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Eco Tip -->
+  <div class="eco-tip">
+    <i class="fa-solid fa-leaf"></i>
+    Canjea tus puntos por productos sostenibles y sigue contribuyendo al cuidado del medio ambiente.
+  </div>
+
+</div>

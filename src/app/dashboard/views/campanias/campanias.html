@@ -1,0 +1,45 @@
+<div class="campanias-wrapper">
+
+  <!-- ENCABEZADO -->
+  <section class="campanias-header">
+    <h2>Campañas</h2>
+    <p>Participa en actividades ecológicas y gana puntos por tus acciones sostenibles.</p>
+  </section>
+
+  <!-- BUSCADOR Y FILTROS -->
+  <section class="filter-bar">
+    <input type="text" placeholder="Buscar campañas..." [(ngModel)]="searchTerm" class="search-input" />
+    <select [(ngModel)]="filtro" class="filter-select">
+      <option value="todas">Todas</option>
+      <option value="activas">Activas</option>
+      <option value="proximas">Próximas</option>
+      <option value="finalizadas">Finalizadas</option>
+    </select>
+  </section>
+
+  <!-- GRID DE CAMPAÑAS -->
+  <section class="campanias-grid">
+    <div class="campania-card" *ngFor="let c of filtrarCampanias()">
+      <div class="campania-header">
+        <h3>{{ c.titulo }}</h3>
+        <span class="estado" [ngClass]="c.estado">{{ c.estado | titlecase }}</span>
+      </div>
+      <p class="descripcion">{{ c.descripcion }}</p>
+
+      <div class="info">
+        <p><i class="fa-solid fa-calendar-days"></i> {{ c.fecha }}</p>
+        <p><i class="fa-solid fa-location-dot"></i> {{ c.lugar }}</p>
+      </div>
+
+      <button class="btn-cta" *ngIf="c.estado === 'activa'">Participar</button>
+      <button class="btn-disabled" *ngIf="c.estado === 'finalizada'">Finalizada</button>
+      <button class="btn-soon" *ngIf="c.estado === 'proxima'">Próximamente</button>
+    </div>
+  </section>
+
+  <!-- ECO TIP -->
+  <section class="eco-tip">
+    <p><i class="fa-solid fa-leaf"></i> {{ ecoTip }}</p>
+  </section>
+
+</div>

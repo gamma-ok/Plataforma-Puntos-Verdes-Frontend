@@ -1,0 +1,46 @@
+<div class="puntosverdes-wrapper">
+
+  <!-- Encabezado -->
+  <div class="puntosverdes-header">
+    <h2>Puntos Verdes</h2>
+    <p>Consulta los puntos de recolección ecológica disponibles en tu distrito.</p>
+  </div>
+
+  <!-- Barra de búsqueda y filtro -->
+  <div class="filter-bar">
+    <input type="text" class="search-input" placeholder="Buscar punto verde..." />
+    <select class="filter-select">
+      <option value="">Todos los tipos</option>
+      <option value="plastico">Plástico</option>
+      <option value="papel">Papel y cartón</option>
+      <option value="vidrio">Vidrio</option>
+      <option value="organico">Orgánico</option>
+    </select>
+  </div>
+
+  <!-- Grid de Puntos Verdes -->
+  <div class="puntosverdes-grid">
+    <div class="puntoverde-card" *ngFor="let punto of puntosVerdes">
+      <div class="puntoverde-header">
+        <h3>{{ punto.nombre }}</h3>
+        <span class="estado" [ngClass]="punto.estado">{{ punto.estado }}</span>
+      </div>
+
+      <p class="descripcion">{{ punto.descripcion }}</p>
+
+      <div class="info">
+        <p><i class="fa-solid fa-location-dot"></i> Dirección: {{ punto.direccion }}</p>
+        <p><i class="fa-solid fa-globe"></i> Lat: {{ punto.latitud }} | Lon: {{ punto.longitud }}</p>
+      </div>
+
+      <button class="btn-cta">Ver Detalle</button>
+    </div>
+  </div>
+
+  <!-- Eco Tip -->
+  <div class="eco-tip">
+    <i class="fa-solid fa-leaf"></i>
+    Recuerda depositar tus residuos en el contenedor correspondiente para contribuir al cuidado del medio ambiente.
+  </div>
+
+</div>

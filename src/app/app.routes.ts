@@ -24,6 +24,10 @@ import { CiudadanoInicio } from './dashboard/ciudadano/pages/ciudadano-inicio/ci
 
 import { Perfil } from './dashboard/views/perfil/perfil';
 import { Ranking } from './dashboard/views/ranking/ranking';
+import { Campanias } from './dashboard/views/campanias/campanias';
+import { PuntosVerdes } from './dashboard/views/puntos-verdes/puntos-verdes';
+import { Entregas } from './dashboard/views/entregas/entregas';
+import { RecompensasDashboard } from './dashboard/views/recompensas/recompensas';
 import { Ayuda } from './dashboard/views/ayuda/ayuda';
 import { Acerca } from './dashboard/views/acerca/acerca';
 
@@ -119,6 +123,22 @@ export const routes: Routes = [
         data: { title: 'Ranking | Dashboard Recolector | Puntos Verdes' }
       },
       {
+        path: 'campanias', component: Campanias,
+        data: { title: 'Campañas | Dashboard Recolector | Puntos Verdes' }
+      },
+      {
+        path: 'puntos-verdes', component: PuntosVerdes,
+        data: { title: 'Puntos Verdes | Dashboard Recolector | Puntos Verdes' }
+      },
+      {
+        path: 'entregas', component: Entregas,
+        data: { title: 'Mis Entregas | Dashboard Recolector | Puntos Verdes' }
+      },
+      {
+        path: 'recompensas', component: RecompensasDashboard,
+        data: { title: 'Recompensas | Dashboard Recolector | Puntos Verdes' }
+      },
+      {
         path: 'ayuda', component: Ayuda,
         data: { title: 'Ayuda | Dashboard Recolector | Puntos Verdes' }
       },
@@ -143,6 +163,22 @@ export const routes: Routes = [
       {
         path: 'ranking', component: Ranking,
         data: { title: 'Ranking | Dashboard Ciudadano | Puntos Verdes' }
+      },
+      {
+        path: 'campanias', component: Campanias,
+        data: { title: 'Campañas | Dashboard Ciudadano | Puntos Verdes' }
+      },
+      {
+        path: 'puntos-verdes', component: PuntosVerdes,
+        data: { title: 'Puntos Verdes | Dashboard Ciudadano | Puntos Verdes' }
+      },
+      {
+        path: 'entregas', component: Entregas,
+        data: { title: 'Mis Entregas | Dashboard Ciudadano | Puntos Verdes' }
+      },
+      {
+        path: 'recompensas', component: RecompensasDashboard,
+        data: { title: 'Recompensas | Dashboard Ciudadano | Puntos Verdes' }
       },
       {
         path: 'ayuda', component: Ayuda,

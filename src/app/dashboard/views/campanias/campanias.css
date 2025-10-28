@@ -1,0 +1,204 @@
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.campanias-wrapper {
+  padding: 2rem;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+/* ===== ENCABEZADO ===== */
+.campanias-header {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.campanias-header h2 {
+  color: #004080;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.campanias-header p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* ===== BARRA DE FILTRO Y BÚSQUEDA ===== */
+.filter-bar {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #004080;
+}
+
+.filter-select {
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+/* ===== GRID DE CAMPAÑAS ===== */
+.campanias-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* En pantallas medianas (tablets) 2 columnas */
+@media (min-width: 768px) {
+  .campanias-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* En pantallas grandes (desktop) 3 columnas */
+@media (min-width: 1024px) {
+  .campanias-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== TARJETAS ===== */
+.campania-card {
+  background: #ffffff;
+  border-left: 5px solid #8ab900;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.campania-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* ===== ENCABEZADO DE CADA TARJETA ===== */
+.campania-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.campania-header h3 {
+  color: #004080;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* ===== ESTADO ===== */
+.estado {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.estado.activa {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.estado.proxima {
+  background: #fff7e6;
+  color: #ff9800;
+}
+
+.estado.finalizada {
+  background: #fbe9e7;
+  color: #d84315;
+}
+
+/* ===== DETALLES ===== */
+.descripcion {
+  color: #555;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.info {
+  color: #777;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.info i {
+  color: #8ab900;
+  margin-right: 0.3rem;
+}
+
+/* ===== BOTONES ===== */
+.btn-cta, .btn-disabled, .btn-soon {
+  display: inline-block;
+  border: none;
+  border-radius: 25px;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cta {
+  background: #004080;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(0,64,128,0.2);
+}
+.btn-cta:hover {
+  background: #002d66;
+  transform: translateY(-2px);
+}
+
+.btn-soon {
+  background: #ff9800;
+  color: #fff;
+}
+.btn-disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* ===== ECO TIP ===== */
+.eco-tip {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 12px;
+  padding: 1rem 1.3rem;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+  }
+
+  .search-input, .filter-select {
+    width: 100%;
+  }
+}

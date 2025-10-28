@@ -1,0 +1,162 @@
+.recompensas-wrapper {
+  padding: 2rem;
+  background: #f8fafc;
+  font-family: "Roboto", sans-serif;
+  color: #1b2433;
+  min-height: 100vh;
+}
+
+/* Encabezado */
+.recompensas-header {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.recompensas-header h2 {
+  color: #004080;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.recompensas-header p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Filtro */
+.filter-bar {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.filter-select {
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+/* Grid */
+.recompensas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Tarjetas */
+.recompensa-card {
+  background: #ffffff;
+  border-left: 5px solid #8ab900;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recompensa-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.recompensa-card.inactiva {
+  opacity: 0.6;
+}
+
+.recompensa-info h3 {
+  color: #004080;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.descripcion {
+  color: #555;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.puntos {
+  color: #2e7d32;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+.stock {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.stock.agotado {
+  color: #c62828;
+}
+
+/* Estado */
+.estado {
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.estado.activo {
+  color: #2e7d32;
+}
+
+.estado.inactivo {
+  color: #c62828;
+}
+
+/* Botón */
+.btn-cta {
+  background: #004080;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn-cta:hover:not(:disabled) {
+  background: #002d66;
+  transform: translateY(-2px);
+}
+
+.btn-cta:disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* Eco Tip */
+.eco-tip {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 12px;
+  padding: 1rem 1.3rem;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+}

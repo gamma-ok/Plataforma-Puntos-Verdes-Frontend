@@ -1,0 +1,95 @@
+<div class="entregas-wrapper">
+
+  <!-- Encabezado -->
+  <div class="entregas-header">
+    <h2>Historial de Entregas</h2>
+    <p>Consulta el registro de tus entregas realizadas en los distintos puntos verdes.</p>
+  </div>
+
+  <!-- Barra de búsqueda y filtro -->
+  <div class="filter-bar">
+    <input type="text" class="search-input" placeholder="Buscar por tipo o punto verde..." />
+    <select class="filter-select">
+      <option value="">Todos los materiales</option>
+      <option value="plastico">Plástico</option>
+      <option value="papel">Papel y cartón</option>
+      <option value="vidrio">Vidrio</option>
+      <option value="organico">Orgánico</option>
+    </select>
+  </div>
+
+  <!-- Tabla de entregas -->
+  <div class="tabla-container">
+    <table class="tabla-entregas">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Tipo de Material</th>
+          <th>Peso (kg)</th>
+          <th>Punto Verde</th>
+          <th>Puntos Obtenidos</th>
+          <th>Estado</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entrega of entregas">
+          <td>{{ entrega.fecha }}</td>
+          <td>{{ entrega.tipo }}</td>
+          <td>{{ entrega.peso }}</td>
+          <td>{{ entrega.puntoVerde }}</td>
+          <td>{{ entrega.puntos }}</td>
+          <td>
+            <span class="estado"
+              [ngClass]="{
+                'aprobado': entrega.estado === 'Aprobado',
+                'pendiente': entrega.estado === 'Pendiente',
+                'desaprobado': entrega.estado === 'Desaprobado'
+              }">
+              {{ entrega.estado }}
+            </span>
+          </td>
+          <td>
+            <button class="btn-cta" (click)="verDetalle(entrega)">
+              Ver Detalle
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Eco Tip -->
+  <div class="eco-tip">
+    <i class="fa-solid fa-leaf"></i>
+    Reciclar de forma constante te permite acumular más puntos y contribuir a un entorno más limpio.
+  </div>
+
+  <!-- === MODAL DETALLE === -->
+  <div class="modal-overlay" *ngIf="detalleVisible" (click)="cerrarDetalle()">
+    <div class="modal-detalle" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="cerrarDetalle()">✕</button>
+      <h3>Detalle de Entrega</h3>
+      <div class="detalle-info">
+        <p><strong>Descripción:</strong> {{ entregaSeleccionada?.descripcion }}</p>
+        <p><strong>Estado:</strong> 
+          <span class="estado" [ngClass]="entregaSeleccionada?.estado.toLowerCase()">
+            {{ entregaSeleccionada?.estado }}
+          </span>
+        </p>
+        <p><strong>Fecha de Entrega:</strong> {{ entregaSeleccionada?.fecha }}</p>
+        <p><strong>Fecha de Validación:</strong> {{ entregaSeleccionada?.fechaValidacion || 'Pendiente' }}</p>
+        <p><strong>Material:</strong> {{ entregaSeleccionada?.tipo }}</p>
+        <p><strong>Cantidad:</strong> {{ entregaSeleccionada?.peso }} kg</p>
+        <p><strong>Unidad:</strong> {{ entregaSeleccionada?.unidad }}</p>
+        <p><strong>Puntos Ganados:</strong> {{ entregaSeleccionada?.puntos }}</p>
+        <p><strong>Campaña Asignada:</strong> {{ entregaSeleccionada?.campaniaAsignada || 'N/A' }}</p>
+        <p><strong>Punto Verde Asignado:</strong> {{ entregaSeleccionada?.puntoVerde || 'N/A' }}</p>
+        <p><strong>Validado por:</strong> {{ entregaSeleccionada?.validadoPor || 'No asignado' }}</p>
+        <p><strong>Observaciones:</strong> {{ entregaSeleccionada?.observaciones || 'Sin observaciones' }}</p>
+        <p><strong>Respuesta del Administrador:</strong> {{ entregaSeleccionada?.respuestaAdmin || 'Sin respuesta' }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
