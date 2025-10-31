@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import baseUrl from './helper';
-import { jwtDecode } from 'jwt-decode'; // ✅ Import correcto para Angular 17+
+import { jwtDecode } from 'jwt-decode'; // Import correcto para Angular 17+
 
 @Injectable({
   providedIn: 'root'

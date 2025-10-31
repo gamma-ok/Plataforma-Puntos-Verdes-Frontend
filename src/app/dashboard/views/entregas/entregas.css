@@ -2,8 +2,6 @@
   padding: 2rem;
   background: #f8fafc;
   min-height: 100vh;
-  font-family: "Roboto", sans-serif;
-  color: #1b2433;
 }
 
 /* Encabezado */
@@ -14,6 +12,7 @@
 
 .entregas-header h2 {
   color: #004080;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.3rem;
 }
