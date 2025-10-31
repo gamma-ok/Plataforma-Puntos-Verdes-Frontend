@@ -41,4 +41,9 @@ export class PerfilService {
   getMisUltimasEntregas(): Observable<any> {
     return this.http.get(`${baseUrl}/api/entregas/mis-ultimas`);
   }
+
+  /** Obtener solo los datos necesarios para el navbar */
+  getDatosNavbar(): Observable<any> {
+    return this.getPerfil();
+  }
 }

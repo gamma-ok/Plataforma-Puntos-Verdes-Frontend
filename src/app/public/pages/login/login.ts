@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -44,28 +45,35 @@ export class Login {
 
     this.authService.login({ username: this.username, password: this.password }).subscribe({
       next: (response) => {
+        // Guardamos token antes de cualquier otra llamada
         this.authService.saveToken(response.token);
 
-        // 🔹 Obtener usuario actual desde el backend
-        this.authService.getCurrentUser().subscribe({
-          next: (user) => {
+        // Llamadas en paralelo (para asegurar flujo correcto)
+        forkJoin({
+          user: this.authService.getCurrentUser()
+        }).subscribe({
+          next: ({ user }) => {
             this.authService.setUser(user);
-            console.log('Datos del usuario logueado:', user);
+            console.log('Usuario logueado:', user);
 
             const role = this.authService.getUserRole();
             console.log('Rol detectado:', role);
 
-            if (role === 'ADMIN')
-              this.router.navigate(['/admin/inicio']);
-            else if (role === 'MUNICIPALIDAD')
-              this.router.navigate(['/municipalidad/inicio']);
-            else if (role === 'RECOLECTOR')
-              this.router.navigate(['/recolector/inicio']);
-            else if (role === 'CIUDADANO')
-              this.router.navigate(['/ciudadano/inicio']);
-            else this.router.navigate(['/']);
+            // Pequeño delay para asegurar propagación del token
+            setTimeout(() => {
+              if (role === 'ADMIN')
+                this.router.navigate(['/admin/inicio']);
+              else if (role === 'MUNICIPALIDAD')
+                this.router.navigate(['/municipalidad/inicio']);
+              else if (role === 'RECOLECTOR')
+                this.router.navigate(['/recolector/inicio']);
+              else if (role === 'CIUDADANO')
+                this.router.navigate(['/ciudadano/inicio']);
+              else this.router.navigate(['/']);
+            }, 200); // <- este delay ayuda a evitar la carga vacía en el navbar
           },
-          error: () => {
+          error: (err) => {
+            console.error(err);
             this.snack.open('Error al obtener datos del usuario', 'Cerrar', { duration: 3000 });
           }
         });

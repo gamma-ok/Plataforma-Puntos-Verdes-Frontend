@@ -5,6 +5,7 @@ import { AuthService } from '../../../services/auth';
 import { PerfilService } from '../../../services/perfil';
 import { RouterModule } from '@angular/router';
 
+
 type RolTipo = 'CIUDADANO' | 'RECOLECTOR' | 'MUNICIPALIDAD' | 'ADMIN';
 
 @Component({
@@ -52,7 +53,9 @@ export class Perfil implements OnInit {
     this.cargarDesdeCache();
     this.obtenerDatosServidor();
     this.obtenerMiRanking();
-    this.obtenerUltimasEntregas();
+    if (this.rolRaw === 'CIUDADANO' || this.rolRaw === 'RECOLECTOR') {
+      this.obtenerUltimasEntregas();
+    }
   }
 
   private cargarDesdeCache(): void {
@@ -104,6 +107,11 @@ export class Perfil implements OnInit {
       rolBackend === 'MUNICIPALIDAD' || rolBackend === 'ADMIN'
         ? 'Panel de gestión'
         : 'Historial de entregas recientes';
+
+        // Llamar entregas solo si el rol lo permite
+    if (rolBackend === 'CIUDADANO' || rolBackend === 'RECOLECTOR') {
+      this.obtenerUltimasEntregas();
+    }
   }
 
   private asignarEstilosRol(rol: RolTipo): void {

@@ -6,7 +6,7 @@
 
   <!-- Título -->
   <div class="admin-left">
-    <h1 class="dashboard-title">Dashboard Admin</h1>
+    <h1 class="dashboard-title">Dashboard Administrador</h1>
   </div>
 
   <!-- Lado derecho -->
@@ -17,10 +17,20 @@
     <!-- Info del usuario -->
     <div class="user-info">
       <div class="user-details">
-        <span class="user-name">Santiago Gamarra</span>
-        <span class="user-role">ADMIN</span>
+        <span class="user-name">{{ nombre }} {{ apellido }}</span>
+        <span class="user-role">{{ rol }}</span>
       </div>
-      <img src="assets/img/default.png" alt="Perfil" class="user-avatar" />
+
+      <!-- Contenedor avatar -->
+      <div class="user-avatar-container" (click)="toggleOpcionesFoto($event)">
+        <img [src]="perfil" alt="Perfil" class="user-avatar" />
+
+        <!-- Opciones emergentes -->
+        <div class="opciones-foto" *ngIf="mostrarOpciones">
+          <button (click)="verPerfil()">Perfil</button>
+          <button (click)="cerrarSesion()">Cerrar sesión</button>
+        </div>
+      </div>
     </div>
   </div>
 </header>

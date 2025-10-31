@@ -17,10 +17,20 @@
     <!-- Info del usuario -->
     <div class="user-info">
       <div class="user-details">
-        <span class="user-name">Santiago Gamarra</span>
-        <span class="user-role">RECOLECTOR</span>
+        <span class="user-name">{{ nombre }} {{ apellido }}</span>
+        <span class="user-role">{{ rol }}</span>
       </div>
-      <img src="assets/img/default.png" alt="Perfil" class="user-avatar" />
+
+      <!-- Contenedor avatar -->
+      <div class="user-avatar-container" (click)="toggleOpcionesFoto($event)">
+        <img [src]="perfil" alt="Perfil" class="user-avatar" />
+
+        <!-- Opciones emergentes -->
+        <div class="opciones-foto" *ngIf="mostrarOpciones">
+          <button (click)="verPerfil()">Perfil</button>
+          <button (click)="cerrarSesion()">Cerrar sesión</button>
+        </div>
+      </div>
     </div>
   </div>
 </header>
