@@ -53,7 +53,7 @@ export class CiudadanoInicio implements OnInit {
     private ngZone: NgZone,
     private cdr: ChangeDetectorRef,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.setGreeting();
@@ -61,24 +61,24 @@ export class CiudadanoInicio implements OnInit {
     this.cargarCampanias();
   }
 
-  /** ----- SALUDO DINÁMICO ----- */
+  /** SALUDO */
   private setGreeting(): void {
     const hour = new Date().getHours();
     this.greeting =
       hour < 12
         ? 'Buenos días'
         : hour < 18
-        ? 'Buenas tardes'
-        : 'Buenas noches';
+          ? 'Buenas tardes'
+          : 'Buenas noches';
   }
 
-  /** ----- VALIDAR SESIÓN Y CARGAR DATOS DEL USUARIO ----- */
+  /** VALIDACIÓN Y CARGA DE DATOS ----- */
   private verificarSesionYcargarDatos(): void {
     const user = this.authService.getUser();
     if (user) this.cargarDatosUsuario(user);
   }
 
-  /** CARGA DE DATOS DE PERFIL Y ENTREGAS */
+  /** CARGA DATOS PERFIL & ENTREGAS */
   private cargarDatosUsuario(user: any): void {
     this.nombre = user.nombre;
     this.apellido = user.apellido;
@@ -133,7 +133,7 @@ export class CiudadanoInicio implements OnInit {
     });
   }
 
-  /** ----- CÁLCULO DEL IMPACTO ----- */
+  /** CALCULO IMPACTO */
   private calcularImpactoAmbiental(conteo: Record<string, number>): number {
     const factores: Record<string, number> = {
       Plástico: 1.5,
@@ -150,7 +150,7 @@ export class CiudadanoInicio implements OnInit {
     return parseFloat(total.toFixed(2));
   }
 
-  /** ----- GRÁFICO DE MATERIALES ----- */
+  /** GRAFICO */
   private initChart(): void {
     if (!this.chartCanvas || !this.chartData.length) return;
     const canvas = this.chartCanvas.nativeElement;
@@ -215,7 +215,7 @@ export class CiudadanoInicio implements OnInit {
     });
   }
 
-  /** ----- CARGA DE CAMPAÑAS ACTIVAS ----- */
+  /** CARGA */
   private cargarCampanias(): void {
     this.campaniaService.listarActivas().subscribe({
       next: (data) => {

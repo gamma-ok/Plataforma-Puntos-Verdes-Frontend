@@ -17,7 +17,7 @@
 
       <input type="file" #fileInput (change)="onFileSelected($event)" hidden />
 
-      <div>
+      <div class="datos-usuario">
         <h2 class="nombre-usuario">{{ nombre }} {{ apellido }}</h2>
         <p>@{{ username }}</p>
         <span class="rol-badge" [ngStyle]="{ color: colorRol, 'background-color': fondoRol }">
@@ -90,29 +90,20 @@
   <section class="perfil-history">
     <h3 class="section-title">{{ tituloHistorial }}</h3>
 
-    <!-- Vista alternativa para CIUDADANO y RECOLECTOR -->
     <ng-container *ngIf="rolRaw === 'CIUDADANO' || rolRaw === 'RECOLECTOR'; else vistaAutoridad">
-      <div class="history-grid" *ngIf="ultimasEntregas.length > 0; else sinEntregas">
-        <div class="history-card" *ngFor="let entrega of ultimasEntregas">
-          <div class="history-header">
-            <i class="fa-solid fa-recycle"></i>
-            <span>{{ entrega.fechaEntrega | date:'dd/MM/yyyy' }}</span>
-          </div>
-
-          <p><strong>{{ entrega.material }}</strong> - {{ entrega.cantidad }} {{ entrega.unidad }}</p>
-          <p class="points">+{{ entrega.puntosGanados }} pts</p>
-
-          <small class="entrega-extra">
-            <i class="fa-solid fa-location-dot"></i>
-            {{ entrega.origenEntrega }}
-          </small>
-          <small class="entrega-extra">
-            <i class="fa-solid fa-circle-info"></i>
-            {{ entrega.estado || 'Sin estado' }}
-          </small>
+      <div class="historial-grid" *ngIf="ultimasEntregas.length > 0; else sinEntregas">
+        <div class="card" *ngFor="let entrega of ultimasEntregas">
+          <div class="icon-circle"><i class="fa-solid fa-recycle"></i></div>
+          <h3 class="card-title">{{ entrega.material }}</h3>
+          <p><strong>Cantidad:</strong> {{ entrega.cantidad }} {{ entrega.unidad }}</p>
+          <p><strong>Puntos Extra:</strong> +{{ entrega.puntosGanados }}</p>
+          <p><strong>Fecha:</strong> {{ entrega.fechaEntrega | date:'dd/MM/yyyy' }}</p>
+          <p><strong>Origen:</strong> {{ entrega.origenEntrega }}</p>
+          <p><strong>Estado:</strong> {{ entrega.estado || 'Sin estado' }}</p>
+          <button class="btn-cta" routerLink="../entregas">Ver detalles</button>
         </div>
       </div>
-
+      <!-- Sin entregas -->
       <ng-template #sinEntregas>
         <div class="sin-entregas-card">
           <i class="fa-solid fa-box-open icono"></i>
@@ -134,7 +125,7 @@
       </ng-template>
     </ng-container>
 
-    <!-- Vista alternativa para ADMIN y MUNICIPALIDAD -->
+    <!-- Vista ADMIN / MUNICIPALIDAD -->
     <ng-template #vistaAutoridad>
       <div class="sin-entregas-card">
         <i class="fa-solid fa-city icono"></i>
@@ -154,6 +145,7 @@
       </div>
     </ng-template>
   </section>
+
 
   <!-- TIP -->
   <div class="eco-tip">
@@ -189,7 +181,7 @@
   </div>
 </div>
 
-<!-- CARGANDO -->
+<!-- CARGA -->
 <ng-template #cargandoTemplate>
   <div class="loading-container">
     <div class="spinner"></div>

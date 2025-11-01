@@ -1,5 +1,4 @@
 <div class="dashboard-wrapper" *ngIf="!cargando; else cargandoTemplate">
-
     <!-- ENCABEZADO -->
     <section class="dashboard-header">
         <div class="welcome">
@@ -72,21 +71,20 @@
     </section>
 
     <!-- CAMPAÑAS -->
-<section class="campaigns-section" *ngIf="campanias.length > 0">
-  <h3 class="section-title">Campañas activas</h3>
-
-  <div class="cards-grid campaigns">
-    <div class="card" *ngFor="let c of campanias">
-      <div class="icon-circle"><i class="fa-solid fa-bullhorn"></i></div>
-      <h3>{{ c.titulo }}</h3>
-      <p>{{ c.descripcion }}</p>
-      <p><strong>Ubicación:</strong> {{ c.ubicacion }}</p>
-      <p><strong>Puntos Extra:</strong> +{{ c.puntosExtra }}</p>
-      <p><strong>Vigencia:</strong> {{ c.fechaInicio | date:'dd/MM' }} - {{ c.fechaFin | date:'dd/MM' }}</p>
-      <button class="btn-cta" routerLink="../campanias">Ver detalles</button>
-    </div>
-  </div>
-</section>
+    <section class="campaigns-section" *ngIf="campanias.length > 0">
+        <h3 class="section-title">Campañas activas</h3>
+        <div class="cards-grid campaigns">
+            <div class="card" *ngFor="let c of campanias">
+                <div class="icon-circle"><i class="fa-solid fa-bullhorn"></i></div>
+                <h3>{{ c.titulo }}</h3>
+                <p>{{ c.descripcion }}</p>
+                <p><strong>Ubicación:</strong> {{ c.ubicacion }}</p>
+                <p><strong>Puntos Extra:</strong> +{{ c.puntosExtra }}</p>
+                <p><strong>Fecha de Inicio:</strong> {{ c.fechaInicio | date:'dd/MM/yyyy' }}</p>
+                <button class="btn-cta" routerLink="../campanias">Ver detalles</button>
+            </div>
+        </div>
+    </section>
 
     <!-- ECO TIP -->
     <section class="eco-tip">
@@ -94,10 +92,9 @@
         <p>¿Sabías que reciclar una botella de plástico ahorra energía suficiente para encender un foco durante 6 horas?
         </p>
     </section>
-
 </div>
 
-<!-- CARGANDO -->
+<!-- CARGA -->
 <ng-template #cargandoTemplate>
     <div class="loading-container">
         <div class="spinner"></div>

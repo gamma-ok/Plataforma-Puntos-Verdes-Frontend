@@ -108,7 +108,7 @@ export class Perfil implements OnInit {
         ? 'Panel de gestión'
         : 'Historial de entregas recientes';
 
-        // Llamar entregas solo si el rol lo permite
+    // Llamar entregas solo si el rol lo permite
     if (rolBackend === 'CIUDADANO' || rolBackend === 'RECOLECTOR') {
       this.obtenerUltimasEntregas();
     }

@@ -18,13 +18,14 @@
   gap: 1.5rem;
 }
 
+/* INFO USUARIO */
 .perfil-info {
   display: flex;
   align-items: center;
   gap: 1.2rem;
 }
 
-.perfil-info div {
+.perfil-info .datos-usuario {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
@@ -50,7 +51,7 @@
   align-self: flex-start;
 }
 
-/* FOTO DE PERFIL */
+/* PERFIL */
 .perfil-avatar-container {
   position: relative;
   display: inline-block;
@@ -65,7 +66,6 @@
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* ICONO DE CAMARA */
 .camera-icon {
   position: absolute;
   bottom: 6px;
@@ -124,7 +124,7 @@
   }
 }
 
-/* BOTONES */
+/* BOTONES GENERALES */
 .perfil-actions {
   display: flex;
   gap: 1rem;
@@ -262,114 +262,146 @@
   margin-top: 2rem;
 }
 
-.history-grid {
+.perfil-history .section-title {
+  color: #004080;
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: left;
+  position: relative;
+}
+
+.historial-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
-.history-card {
+.historial-grid .card {
   background: #fff;
-  border-radius: 12px;
-  padding: 1.2rem 1.5rem;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-top: 5px solid #8ab900;
 }
 
-.history-card:hover {
-  transform: translateY(-4px);
+.historial-grid .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
 }
 
-.history-header {
+.historial-grid .icon-circle {
+  width: 60px;
+  height: 60px;
+  background: #e8f5e9;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.historial-grid .icon-circle i {
+  color: #8ab900;
+  font-size: 1.8rem;
+}
+
+.historial-grid .card-title {
   color: #004080;
-  font-weight: 500;
+  font-size: 1.3rem;
+  font-weight: 600;
   margin-bottom: 0.6rem;
 }
 
-.entrega-extra {
-  display: block;
+.historial-grid p {
   color: #555;
-  font-size: 0.85rem;
-  margin-top: 0.3rem;
+  font-size: 0.95rem;
+  margin: 0.3rem 0;
 }
 
-.entrega-extra i {
-  margin-right: 4px;
-  color: #8ab900;
+.btn-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: 25px;
+  background: #004080;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
-.points {
-  color: #8ab900;
-  font-weight: 600;
+.btn-cta:hover {
+  background: #002d66;
 }
 
-/* SECCIÓN SIN ENTREGAS */
 .sin-entregas-card {
-  text-align: center;
   background: #fff;
   border-radius: 16px;
-  padding: 2rem 1.5rem;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
-  margin-top: 1.2rem;
-  color: #333;
-  animation: fadeIn 0.4s ease;
+  padding: 2rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
 }
 
 .sin-entregas-card .icono {
   font-size: 3rem;
   color: #8ab900;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .sin-entregas-card h4 {
   font-weight: 500;
-  margin-bottom: 0.6rem;
   color: #004080;
+  margin-bottom: 0.8rem;
 }
 
 .sin-entregas-card p {
   color: #555;
-  margin-bottom: 1.2rem;
+  line-height: 1.5;
 }
 
 .sin-entregas-card .acciones {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
 .sin-entregas-card button {
-  border-radius: 25px;
   padding: 0.6rem 1.2rem;
   font-weight: 500;
+  border-radius: 25px;
   cursor: pointer;
-  transition: all 0.3s;
+  border: none;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  border: none;
-}
-
-.acciones .btn-green {
-  background: #8ab900;
-  color: #fff;
-}
-
-.acciones .btn-green:hover {
-  background: #729600;
+  gap: 0.5rem;
 }
 
 .acciones .btn-blue {
-  background: #004080;
+  background-color: #004080;
   color: #fff;
 }
 
 .acciones .btn-blue:hover {
-  background: #002d66;
+  background-color: #002d66;
+}
+
+.acciones .btn-green {
+  background-color: #8ab900;
+  color: #fff;
+}
+
+.acciones .btn-green:hover {
+  background-color: #729600;
 }
 
 /* TIP */
@@ -445,7 +477,7 @@
   margin-top: 1.5rem;
 }
 
-/* CARGANDO */
+/* CARGA */
 .loading-container {
   display: flex;
   flex-direction: column;
