@@ -1,83 +1,228 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, ElementRef, Inject, PLATFORM_ID, ViewChild, AfterViewInit, NgZone } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  Inject,
+  PLATFORM_ID,
+  NgZone,
+  OnInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { Chart } from 'chart.js/auto';
+import { AuthService } from '../../../../services/auth';
+import { PerfilService } from '../../../../services/perfil';
+import { CampaniaService } from '../../../../services/campania';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'app-ciudadano-inicio',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './ciudadano-inicio.html',
-  styleUrl: './ciudadano-inicio.css'
+  styleUrl: './ciudadano-inicio.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CiudadanoInicio implements AfterViewInit {
-  @ViewChild('chartCanvas', { static: false }) chartCanvas!: ElementRef<HTMLCanvasElement>;
-  private chart!: Chart;
+export class CiudadanoInicio implements OnInit {
+  @ViewChild('chartCanvas') chartCanvas!: ElementRef<HTMLCanvasElement>;
+  chart!: Chart;
 
-  username = 'Santiago';
-  puntos = 350;
-  impacto = 15;
-  ecoTip = '¿Sabías que reciclar una lata de aluminio ahorra suficiente energía para hacer funcionar un televisor por 3 horas?';
-  campanias = [
-    { titulo: 'Reciclatón Escolar', descripcion: 'Participa llevando tus residuos reciclables al punto más cercano.' },
-    { titulo: 'Semana Verde', descripcion: 'Contribuye en la recolección masiva de plástico PET.' },
-    { titulo: 'Eco Canje', descripcion: 'Intercambia tus puntos por premios sostenibles.' }
-  ];
-
+  nombre = '';
+  apellido = '';
+  puntos = 0;
+  impacto = 0;
   greeting = '';
+  cargando = true;
+
+  totalEntregas = 0;
+  entregasAprobadas = 0;
+  materialFrecuente = '';
+  ultimaEntrega: any = null;
+  chartData: number[] = [];
+  chartLabels: string[] = [];
+  chartUnidades: string[] = [];
+
+  campanias: any[] = [];
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private ngZone: NgZone
+    private authService: AuthService,
+    private perfilService: PerfilService,
+    private campaniaService: CampaniaService,
+    private ngZone: NgZone,
+    private cdr: ChangeDetectorRef,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
-  ngOnInit() {
-    const hour = new Date().getHours();
-    this.greeting = hour < 12 ? 'Buenos días' : hour < 18 ? 'Buenas tardes' : 'Buenas noches';
+  ngOnInit(): void {
+    this.setGreeting();
+    this.verificarSesionYcargarDatos();
+    this.cargarCampanias();
   }
 
-  ngAfterViewInit() {
-    if (!isPlatformBrowser(this.platformId)) return;
+  /** ----- SALUDO DINÁMICO ----- */
+  private setGreeting(): void {
+    const hour = new Date().getHours();
+    this.greeting =
+      hour < 12
+        ? 'Buenos días'
+        : hour < 18
+        ? 'Buenas tardes'
+        : 'Buenas noches';
+  }
 
-    this.ngZone.runOutsideAngular(() => {
-      let attempts = 0;
+  /** ----- VALIDAR SESIÓN Y CARGAR DATOS DEL USUARIO ----- */
+  private verificarSesionYcargarDatos(): void {
+    const user = this.authService.getUser();
+    if (user) this.cargarDatosUsuario(user);
+  }
 
-      const tryInitChart = () => {
-        const canvas = this.chartCanvas?.nativeElement;
-        if (canvas && canvas.offsetParent !== null) {
-          this.initChart(canvas);
-        } else if (attempts < 10) {
-          attempts++;
-          setTimeout(tryInitChart, 100);
+  /** CARGA DE DATOS DE PERFIL Y ENTREGAS */
+  private cargarDatosUsuario(user: any): void {
+    this.nombre = user.nombre;
+    this.apellido = user.apellido;
+
+    this.perfilService.getMiRanking().subscribe({
+      next: (data) => {
+        this.puntos = data?.puntos || 0;
+        this.cdr.markForCheck();
+      },
+    });
+
+    this.perfilService.getMisUltimasEntregas().subscribe({
+      next: (entregas) => {
+        if (entregas?.length) {
+          this.ultimaEntrega = entregas[0];
+          this.totalEntregas = entregas.length;
+          this.entregasAprobadas = entregas.filter(
+            (e: any) => e.estado === 'APROBADO'
+          ).length;
+
+          const conteo: Record<string, number> = {};
+          const unidades: Record<string, string> = {};
+
+          entregas.forEach((e: any) => {
+            const material = e.material || 'Sin especificar';
+            conteo[material] = (conteo[material] || 0) + (e.cantidad || 1);
+            unidades[material] = e.unidad || 'kg';
+          });
+
+          this.materialFrecuente = Object.keys(conteo).reduce((a, b) =>
+            conteo[a] > conteo[b] ? a : b
+          );
+
+          this.chartLabels = Object.keys(conteo);
+          this.chartData = Object.values(conteo);
+          this.chartUnidades = this.chartLabels.map((m) => unidades[m] || 'kg');
+
+          this.impacto = this.calcularImpactoAmbiental(conteo);
+
+          this.ngZone.runOutsideAngular(() =>
+            setTimeout(() => this.initChart(), 300)
+          );
         }
-      };
-
-      tryInitChart();
+        this.cargando = false;
+        this.cdr.markForCheck();
+      },
+      error: (err) => {
+        console.error('Error al cargar entregas:', err);
+        this.cargando = false;
+        this.cdr.markForCheck();
+      },
     });
   }
 
-  private initChart(canvas: HTMLCanvasElement) {
-    if (Chart.getChart(canvas)) Chart.getChart(canvas)?.destroy();
+  /** ----- CÁLCULO DEL IMPACTO ----- */
+  private calcularImpactoAmbiental(conteo: Record<string, number>): number {
+    const factores: Record<string, number> = {
+      Plástico: 1.5,
+      Papel: 1.2,
+      Vidrio: 0.3,
+      Metal: 4.0,
+      Cartón: 0.8,
+    };
+    let total = 0;
+    for (const material in conteo) {
+      const factor = factores[material] || 0.5;
+      total += conteo[material] * factor;
+    }
+    return parseFloat(total.toFixed(2));
+  }
 
-    this.chart = new Chart(canvas, {
+  /** ----- GRÁFICO DE MATERIALES ----- */
+  private initChart(): void {
+    if (!this.chartCanvas || !this.chartData.length) return;
+    const canvas = this.chartCanvas.nativeElement;
+    const existing = Chart.getChart(canvas);
+    if (existing) existing.destroy();
+
+    Chart.register(ChartDataLabels);
+
+    new Chart(canvas, {
       type: 'doughnut',
       data: {
-        labels: ['Plástico', 'Vidrio', 'Papel', 'Metal'],
+        labels: this.chartLabels,
         datasets: [
           {
-            data: [45, 25, 20, 10],
-            backgroundColor: ['#8ab900', '#56b4d3', '#f7d154', '#f27360'],
-            borderWidth: 0
-          }
-        ]
+            data: this.chartData,
+            backgroundColor: ['#8ab900', '#56b4d3', '#f7d154', '#f27360', '#a77dc2'],
+            borderWidth: 0,
+          },
+        ],
       },
       options: {
         responsive: true,
-        maintainAspectRatio: false,
         cutout: '70%',
         plugins: {
-          legend: { display: true, position: 'bottom' }
-        }
-      }
+          legend: {
+            position: 'bottom',
+          },
+          datalabels: {
+            color: '#fff',
+            font: {
+              weight: 'bold',
+              size: 14,
+            },
+            formatter: (value, context) => {
+              const data = context.chart.data.datasets[0].data as number[];
+              const total = data.reduce((acc, val) => acc + (val || 0), 0);
+              const porcentaje =
+                total > 0 ? ((value / total) * 100).toFixed(1) : '0.0';
+              return `${porcentaje}%`;
+            },
+          },
+          tooltip: {
+            callbacks: {
+              title: (tooltipItems) => {
+                // Mostrar solo el nombre del material una vez
+                return tooltipItems[0].label || '';
+              },
+              label: (tooltipItem) => {
+                const valor = tooltipItem.raw as number;
+                const unidad =
+                  this.chartUnidades[tooltipItem.dataIndex] || 'kg';
+                const data = tooltipItem.dataset.data as number[];
+                const total = data.reduce((acc, val) => acc + (val || 0), 0);
+                const porcentaje =
+                  total > 0 ? ((valor / total) * 100).toFixed(1) : '0.0';
+                return `${valor} ${unidad} (${porcentaje}%)`;
+              },
+            },
+          },
+        },
+      },
+    });
+  }
+
+  /** ----- CARGA DE CAMPAÑAS ACTIVAS ----- */
+  private cargarCampanias(): void {
+    this.campaniaService.listarActivas().subscribe({
+      next: (data) => {
+        this.campanias = (data || []).slice(0, 3);
+        this.cdr.markForCheck();
+      },
+      error: (err) => console.error('Error al cargar campañas:', err),
     });
   }
 }

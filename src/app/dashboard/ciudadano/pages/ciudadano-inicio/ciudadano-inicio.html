@@ -1,15 +1,15 @@
-<div class="dashboard-wrapper">
+<div class="dashboard-wrapper" *ngIf="!cargando; else cargandoTemplate">
 
     <!-- ENCABEZADO -->
     <section class="dashboard-header">
         <div class="welcome">
-            <h2>{{ greeting }}, <span class="username">{{ username }}</span> 🌿</h2>
+            <h2>{{ greeting }}, <span class="username">{{ nombre }} {{ apellido }}</span></h2>
             <p>Has acumulado <strong>{{ puntos }}</strong> puntos este mes. ¡Sigue reciclando y gana más recompensas!
             </p>
         </div>
     </section>
 
-    <!-- CARDS -->
+    <!-- CARDS PRINCIPALES -->
     <section class="cards-grid">
         <div class="card">
             <div class="icon-circle"><i class="fa-solid fa-coins"></i></div>
@@ -20,24 +20,32 @@
         <div class="card">
             <div class="icon-circle"><i class="fa-solid fa-boxes-packing"></i></div>
             <h3>Última entrega</h3>
-            <p>Plásticos - 5kg (12/09/2025)</p>
+            <ng-container *ngIf="ultimaEntrega; else sinEntrega">
+                <p>
+                    {{ ultimaEntrega.material }} - {{ ultimaEntrega.cantidad }}
+                    {{ ultimaEntrega.unidad }} ({{ ultimaEntrega.fechaEntrega | date: 'dd/MM/yyyy' }})
+                </p>
+            </ng-container>
+            <ng-template #sinEntrega>
+                <p>Aún no tienes entregas registradas</p>
+            </ng-template>
         </div>
 
         <div class="card">
             <div class="icon-circle"><i class="fa-solid fa-seedling"></i></div>
             <h3>Impacto Ambiental</h3>
-            <p>Has reducido {{ impacto }} kg de CO₂</p>
+            <p>Has evitado {{ impacto | number:'1.1-1' }} kg de CO₂ emitidos</p>
         </div>
 
         <div class="card">
             <div class="icon-circle"><i class="fa-solid fa-gift"></i></div>
             <h3>Recompensas</h3>
-            <a routerLink="/ciudadano/recompensas" class="btn-cta">Canjear ahora</a>
+            <button class="btn-cta" routerLink="../recompensas">Canjear ahora</button>
         </div>
     </section>
 
-    <!-- GRÁFICA -->
-    <section class="chart-section">
+    <!-- GRÁFICO -->
+    <section class="chart-section" *ngIf="chartData?.length">
         <div class="chart-container">
             <h3 class="section-title">Tus materiales reciclados</h3>
             <canvas #chartCanvas></canvas>
@@ -50,34 +58,49 @@
         <div class="stats-grid">
             <div class="stat-item">
                 <h4>Entregas realizadas</h4>
-                <p>12</p>
+                <p>{{ totalEntregas }}</p>
             </div>
             <div class="stat-item">
                 <h4>Material más reciclado</h4>
-                <p>Plástico</p>
+                <p>{{ materialFrecuente || 'N/A' }}</p>
             </div>
             <div class="stat-item">
-                <h4>Puntos por entregar</h4>
-                <p>+25</p>
+                <h4>Entregas aprobadas</h4>
+                <p>{{ entregasAprobadas }}</p>
             </div>
         </div>
     </section>
 
     <!-- CAMPAÑAS -->
-    <section class="campaigns-section">
-        <h3 class="section-title">Campañas activas</h3>
-        <div class="campaigns-grid">
-            <div class="campaign-card" *ngFor="let c of campanias">
-                <h4>{{ c.titulo }}</h4>
-                <p>{{ c.descripcion }}</p>
-                <button class="btn-cta">Participar</button>
-            </div>
-        </div>
-    </section>
+<section class="campaigns-section" *ngIf="campanias.length > 0">
+  <h3 class="section-title">Campañas activas</h3>
+
+  <div class="cards-grid campaigns">
+    <div class="card" *ngFor="let c of campanias">
+      <div class="icon-circle"><i class="fa-solid fa-bullhorn"></i></div>
+      <h3>{{ c.titulo }}</h3>
+      <p>{{ c.descripcion }}</p>
+      <p><strong>Ubicación:</strong> {{ c.ubicacion }}</p>
+      <p><strong>Puntos Extra:</strong> +{{ c.puntosExtra }}</p>
+      <p><strong>Vigencia:</strong> {{ c.fechaInicio | date:'dd/MM' }} - {{ c.fechaFin | date:'dd/MM' }}</p>
+      <button class="btn-cta" routerLink="../campanias">Ver detalles</button>
+    </div>
+  </div>
+</section>
 
     <!-- ECO TIP -->
     <section class="eco-tip">
-        <p><i class="fa-solid fa-leaf"></i> {{ ecoTip }}</p>
+        <i class="fa-solid fa-leaf"></i>
+        <p>¿Sabías que reciclar una botella de plástico ahorra energía suficiente para encender un foco durante 6 horas?
+        </p>
     </section>
 
 </div>
+
+<!-- CARGANDO -->
+<ng-template #cargandoTemplate>
+    <div class="loading-container">
+        <div class="spinner"></div>
+        <p>Cargando tu información...</p>
+    </div>
+</ng-template>

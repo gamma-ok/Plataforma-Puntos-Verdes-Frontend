@@ -12,18 +12,15 @@
   text-align: left;
   margin-bottom: 2rem;
 }
-
 .dashboard-header h2 {
   font-size: 1.5rem;
   font-weight: 600;
   color: #004080;
   margin-bottom: 0.4rem;
 }
-
 .dashboard-header .username {
   color: #8ab900;
 }
-
 .dashboard-header p {
   color: #666;
   font-size: 1rem;
@@ -37,24 +34,20 @@
   gap: 1.5rem;
   margin-bottom: 3rem;
 }
-
 .card {
-  background: #ffffff;
+  background: #fff;
   border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
   text-align: center;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
-
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
 }
-
-/* Icono circular */
 .icon-circle {
   width: 60px;
   height: 60px;
@@ -63,27 +56,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1rem auto;
+  margin: 0 auto 1rem;
 }
-
 .icon-circle i {
   color: #8ab900;
   font-size: 1.8rem;
 }
-
 .card h3 {
   color: #003366;
   font-size: 1.4rem;
   margin-bottom: 0.4rem;
   font-weight: 600;
 }
-
 .card p {
   color: #666;
   font-size: 0.95rem;
 }
-
-.card .btn-cta {
+.btn-cta {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.6rem 1.3rem;
@@ -94,33 +83,58 @@
   text-decoration: none;
   font-size: 0.9rem;
   transition: background 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
-
-.card .btn-cta:hover {
+.btn-cta:hover {
   background: #002d66;
 }
 
-/* ===== ESTADÍSTICAS RÁPIDAS ===== */
-.stats-section {
-  background: #ffffff;
+/* ===== GRÁFICO ===== */
+.chart-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
   border-radius: 16px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
 }
-
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  width: 100%;
+}
+.chart-container canvas {
+  width: 100% !important;
+  max-height: 320px;
+  cursor: pointer;
+}
 .section-title {
   color: #004080;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  text-align: left;
+  position: relative;
 }
 
+/* ===== ESTADÍSTICAS ===== */
+.stats-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 3rem;
+}
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1rem;
 }
-
 .stat-item {
   background: #f4f7f9;
   border-radius: 10px;
@@ -128,17 +142,11 @@
   text-align: center;
   transition: background 0.3s;
 }
-
-.stat-item:hover {
-  background: #e8f5e9;
-}
-
 .stat-item h4 {
   font-size: 0.95rem;
   color: #004080;
   margin-bottom: 0.4rem;
 }
-
 .stat-item p {
   font-size: 1.3rem;
   font-weight: 600;
@@ -146,168 +154,69 @@
   margin: 0;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .dashboard-wrapper {
-    padding: 1.2rem;
-  }
-
-  .dashboard-header h2 {
-    font-size: 1.6rem;
-  }
-
-  .cards-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .stat-item p {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .cards-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ==== NUEVOS BLOQUES ==== */
-.user-avatar {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
-}
-.user-avatar:hover {
-  transform: scale(1.05);
-}
-
-/* === CHART === */
-.chart-section {
-  display: flex;
-  justify-content: center;
-  background: #fff;
-  border-radius: 16px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
-}
-
-.chart-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;  
-  width: 100%;
-  max-width: 500px; /* ← límite para desktop */
-  height: auto;
-}
-
-.chart-container canvas {
-  width: 100% !important;
-  height: auto !important;
-  max-height: 320px; /* evita que crezca demasiado */
-}
-
-/* === CAMPAÑAS === */
+/* ===== CAMPAÑAS ===== */
 .campaigns-section {
   margin-top: 2rem;
 }
-
-.campaigns-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.2rem;
+.cards-grid.campaigns {
+  gap: 1.5rem;
 }
-
-.campaign-card {
-  background: #ffffff;
-  border-left: 5px solid #8ab900;
-  border-radius: 10px;
-  padding: 1.2rem 1.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  transition: transform 0.3s;
+.cards-grid.campaigns .card {
+  border-top: 5px solid #8ab900;
+  padding-top: 1.5rem;
 }
-.campaign-card:hover {
-  transform: translateY(-4px);
-}
-.campaign-card h4 {
+.cards-grid.campaigns .card h3 {
   color: #004080;
   margin-bottom: 0.5rem;
-  font-weight: 600;
 }
-.campaign-card p {
-  color: #666;
-  margin-bottom: 1rem;
+.cards-grid.campaigns .card p {
   font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.3rem;
 }
 
-/* === ECO TIP === */
+/* ===== ECO TIP ===== */
 .eco-tip {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   background: #e8f5e9;
   color: #2e7d32;
   border-radius: 12px;
-  padding: 1.2rem 1.5rem;
+  padding: 1rem 1.3rem;
   margin-top: 2rem;
   font-size: 0.95rem;
-  display: flex;
-  align-items: center;
   gap: 0.6rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+}
+.eco-tip i {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.eco-tip p {
+  margin: 0;
+  line-height: 1.4;
 }
 
-@media (max-width: 768px) {
-  .chart-section {
-    padding: 1.5rem;
-  }
-
-  .chart-container {
-    max-width: 400px;
-  }
-
-  .chart-container canvas {
-    max-height: 280px;
-  }
+/* ===== CARGANDO ===== */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  color: #004080;
 }
-
-@media (max-width: 480px) {
-  .chart-container {
-    max-width: 100%;
+.spinner {
+  border: 4px solid #ccc;
+  border-top: 4px solid #004080;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-
-  .chart-container canvas {
-    max-height: 240px;
-  }
-}
-
-/* === BOTONES DE CAMPAÑAS === */
-.campaign-card .btn-cta {
-  display: inline-block;
-  background: #004080;
-  color: #fff;
-  padding: 0.6rem 1.4rem;
-  border: none;
-  border-radius: 25px;
-  font-weight: 500;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 3px 8px rgba(0, 64, 128, 0.2);
-}
-
-.campaign-card .btn-cta:hover {
-  background: #003366;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 12px rgba(0, 64, 128, 0.3);
-}
-
-.campaign-card .btn-cta:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(0, 64, 128, 0.2);
 }
